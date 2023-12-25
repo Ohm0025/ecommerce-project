@@ -23,7 +23,7 @@ const useSearchBar = () => {
 
   const listProducts = (title?: string) => {
     if (title || keyword) {
-      navigate("/products?title=" + title || keyword);
+      navigate("/products?title=" + (title || keyword));
     } else {
       navigate("/products");
     }
@@ -72,6 +72,7 @@ const useSearchBar = () => {
     changeKeyword: (value: string) => setValue("keyword", value),
     suggestArr,
     listProducts,
+    keyword,
   };
 };
 

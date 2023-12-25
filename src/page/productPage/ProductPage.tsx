@@ -31,11 +31,11 @@ const ProductPage = (props: Props) => {
     // if(type){
     //   const filterList =
     // }
-  }, []);
+  }, [fetchProductList, title]);
 
   return (
     <>
-      {productList.loading ? (
+      {productList.loading || fetchProductList.loading ? (
         <Spinner color="black" />
       ) : (
         <div>
