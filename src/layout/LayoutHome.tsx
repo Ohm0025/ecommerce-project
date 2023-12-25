@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBar from "../component/searchBar/SearchBar";
 import { Outlet } from "react-router-dom";
+import Footer from "../component/footer/Footer";
 
 type Props = {};
 
@@ -9,6 +10,7 @@ const LayoutHome = (props: Props) => {
     <div className="flex flex-col">
       <SearchBar />
       <Outlet />
+      <Footer />
     </div>
   );
 };

@@ -26,8 +26,7 @@ const SearchBar = (props: Props) => {
       if (suggestBox.current && !suggestBox.current.contains(e.target)) {
         setOpenSuggest(false);
       } else {
-        if (inputBox.current && inputBox.current.contains(e.target))
-          setOpenSuggest(true);
+        if (e.target.name === "keyword") setOpenSuggest(true);
       }
     };
     document.addEventListener("click", handleClickOutSide);
@@ -51,7 +50,6 @@ const SearchBar = (props: Props) => {
           type="text"
           placeholder="search here"
           className="flex-1 px-3 py-2 outline-none text-[18px]"
-          ref={inputBox}
         />
         <button
           className="w-[50px] text-center p-3 text-white"
