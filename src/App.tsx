@@ -4,6 +4,7 @@ import AuthenPage from "./page/authenPage/AuthenPage";
 import ProductPage from "./page/productPage/ProductPage";
 import SearchBar from "./component/searchBar/SearchBar";
 import LayoutHome from "./layout/LayoutHome";
+import DetailPage from "./page/detailPage/DetailPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -17,8 +18,12 @@ function App() {
           element: <HomePage />,
         },
         {
-          path: "/products",
+          path: "products",
           element: <ProductPage />,
+        },
+        {
+          path: "products/:productId",
+          element: <DetailPage />,
         },
       ],
     },
