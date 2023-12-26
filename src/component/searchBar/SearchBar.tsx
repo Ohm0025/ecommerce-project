@@ -1,11 +1,4 @@
-import React, {
-  LegacyRef,
-  MutableRefObject,
-  RefObject,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useEffect, useState } from "react";
 import Cart from "../cart/Cart";
 import { useSearchBar } from "./SearchBar.hook";
 import { Link } from "react-router-dom";
@@ -18,7 +11,6 @@ const SearchBar = (props: Props) => {
     useSearchBar();
 
   const suggestBox = React.useRef<HTMLInputElement | any>(null);
-  const inputBox = React.useRef<HTMLInputElement | any>();
   const [openSuggest, setOpenSuggest] = useState(true);
 
   useEffect(() => {

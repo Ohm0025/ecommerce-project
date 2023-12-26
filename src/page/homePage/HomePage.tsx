@@ -14,7 +14,7 @@ let sampleSlides = [
 
 const HomePage = (props: Props) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col min-h-[100vh]">
       <div className="max-w-[600px] mx-[auto] my-[50px]">
         <Carousel slides={sampleSlides} />
       </div>

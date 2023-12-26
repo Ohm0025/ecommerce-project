@@ -29,7 +29,7 @@ function App() {
   ]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col min-h-[100vh]">
       <RouterProvider router={router}></RouterProvider>
     </div>
   );

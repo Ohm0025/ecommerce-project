@@ -1,4 +1,10 @@
+interface IRating {
+  rate: number;
+  count: number;
+}
+
 export interface IProductListItem {
+  rating: IRating;
   id: number;
   title: string;
   price: string;

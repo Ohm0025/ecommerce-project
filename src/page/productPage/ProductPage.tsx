@@ -1,13 +1,17 @@
 import React, { useEffect } from "react";
 import { useProductListStore } from "../../store/productList";
-import { useLocation, useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Spinner from "../../component/spinner/Spinner";
+import ProductCard from "../../component/productCard/ProductCard";
+import FilterBox from "../../component/filterBox/FilterBox";
+import { useProductCategory } from "../../store/categoryAll";
 
 type Props = {};
 
 const ProductPage = (props: Props) => {
   const { productList, setProductList, fetchProductList } =
     useProductListStore();
+  const { currentCat } = useProductCategory();
 
   const [queryStr, setQueryStr] = useSearchParams();
   let title = queryStr.get("title") || "";
@@ -21,7 +25,6 @@ const ProductPage = (props: Props) => {
       );
       setProductList({ data: filterList, loading: false, error: null });
     } else {
-      console.log("setRaw");
       setProductList({
         data: [...fetchProductList.data],
         loading: false,
@@ -36,12 +39,21 @@ const ProductPage = (props: Props) => {
   return (
     <>
       {productList.loading || fetchProductList.loading ? (
-        <Spinner color="black" />
+        <div className="flex flex-col items-center min-h-[100vh]">
+          <Spinner color="black" />
+        </div>
       ) : (
-        <div>
+        <div className="min-h-[100vh] grid grid-cols-5 gap-1">
+          <FilterBox />
           {productList.data.length > 0 ? (
             productList.data.map((item) => {
-              return <div>{item.title}</div>;
+              if (currentCat.length === 0 || !currentCat) {
+                return <ProductCard productDetail={item} />;
+              } else {
+                if (currentCat.includes(item.category)) {
+                  return <ProductCard productDetail={item} />;
+                }
+              }
             })
           ) : (
             <h1>emty</h1>

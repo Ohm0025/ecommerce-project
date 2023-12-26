@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useProductListStore } from "../../store/productList";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { searchProduct } from "../../services/searchProduct";
 
 const useSearchBar = () => {
@@ -12,6 +12,8 @@ const useSearchBar = () => {
     watch,
     formState: { errors },
   } = useForm();
+
+  const location = useLocation();
 
   const [suggestArr, setSuggestArr] = useState<Array<string>>([]);
 
@@ -44,7 +46,6 @@ const useSearchBar = () => {
     setFetchProductList({ data: [], loading: true, error: null });
     const responseList = await searchProduct.fetchAllProduct();
     if (responseList.status === 200) {
-      console.log("FETCHING");
       const rawProductList = responseList.data;
       if (rawProductList) {
         setFetchProductList({
@@ -54,7 +55,6 @@ const useSearchBar = () => {
         });
       }
     } else {
-      console.log("fetchError");
       setFetchProductList({
         data: [],
         loading: false,
