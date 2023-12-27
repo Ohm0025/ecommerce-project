@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import Cart from "../cart/Cart";
 import { useSearchBar } from "./SearchBar.hook";
 import { Link } from "react-router-dom";
+import UserDropDown from "../userDropdown/UserDropDown";
 
 type Props = {};
 
 const SearchBar = (props: Props) => {
   const [openCart, setOpenCart] = useState(false);
+  const [openUser, setOpenUser] = useState(false);
   const { fieldKeyword, suggestArr, listProducts, changeKeyword, keyword } =
     useSearchBar();
 
@@ -14,16 +16,16 @@ const SearchBar = (props: Props) => {
   const [openSuggest, setOpenSuggest] = useState(true);
 
   useEffect(() => {
-    const handleClickOutSide = (e: any) => {
+    const handleClickOutSideSuggestBox = (e: any) => {
       if (suggestBox.current && !suggestBox.current.contains(e.target)) {
         setOpenSuggest(false);
       } else {
         if (e.target.name === "keyword") setOpenSuggest(true);
       }
     };
-    document.addEventListener("click", handleClickOutSide);
+    document.addEventListener("click", handleClickOutSideSuggestBox);
     return () => {
-      document.removeEventListener("click", handleClickOutSide);
+      document.removeEventListener("click", handleClickOutSideSuggestBox);
     };
   }, [suggestBox]);
 
@@ -36,7 +38,7 @@ const SearchBar = (props: Props) => {
           className="rounded-full w-[50px] block col-start-1"
         />
       </Link>
-      <div className="flex rounded-[40px] min-w-[300px] bg-[gray] justify-between border border-[gray] overflow-hidden col-start-2 col-end-7 sm:col-start-4 sm:col-end-10">
+      <div className="flex rounded-[20px] min-w-[300px] bg-[gray] justify-between border border-[gray] overflow-hidden col-start-2 col-end-7 sm:col-start-4 sm:col-end-10">
         <input
           {...fieldKeyword}
           type="text"
@@ -71,22 +73,36 @@ const SearchBar = (props: Props) => {
           })}
         </div>
       )}
+      <div className="flex justify-between col-start-11 col-span-2">
+        <div
+          className={`${
+            openCart ? "bg-gray-200 text-black" : "bg-[gray] text-white"
+          } w-[50px] rounded-full text-center`}>
+          <button
+            className="text-center p-3"
+            onClick={() => {
+              setOpenCart((prev) => !prev);
+              setOpenUser(false);
+            }}>
+            <i className="fa-solid fa-cart-shopping"></i>
+          </button>
+        </div>
+        <div
+          className={`${
+            openUser ? "bg-gray-200 text-black" : "bg-[gray] text-white"
+          } w-[50px] rounded-full text-center`}>
+          <button
+            className="text-center p-3 text-white"
+            onClick={() => {
+              setOpenUser((prev) => !prev);
+              setOpenCart(false);
+            }}>
+            <i className="fa-solid fa-user"></i>
+          </button>
+        </div>
+      </div>
 
-      <div
-        className={`${
-          openCart ? "bg-gray-200 text-black" : "bg-[gray] text-white"
-        } w-[50px] rounded-full col-start-7 sm:col-start-11 text-center justify-self-end`}>
-        <button
-          className="text-center p-3"
-          onClick={() => setOpenCart((prev) => !prev)}>
-          <i className="fa-solid fa-cart-shopping"></i>
-        </button>
-      </div>
-      <div className="bg-[gray] w-[50px] rounded-full sm:col-start-12 text-center justify-self-end">
-        <button className="text-center p-3 text-white">
-          <i className="fa-solid fa-user"></i>
-        </button>
-      </div>
+      <UserDropDown isOpen={openUser} />
       <Cart listItem={["ekfpe", "hjge0oigjo", "eiohjg0"]} isOpen={openCart} />
     </div>
   );

@@ -2,17 +2,17 @@ import React from "react";
 
 type Props = {
   listItem: string[];
-  isOpen: boolean;
+  isOpen?: boolean;
 };
 
 const Cart = (props: Props) => {
   return (
     <div
-      className={`absolute z-10 top-2 ease-in-out duration-[3000ms] ${
+      className={`absolute z-[2] top-2 right-0 ease-in-out duration-[3000ms] ${
         props.isOpen
           ? "block translate-y-[60px]"
           : "hidden translate-y-[-100px]"
-      } z-10 max-w-[400px] w-[300px] col-start-8`}>
+      } max-w-[400px] w-[300px]`}>
       {props.listItem.map((item, index) => {
         return (
           <div className="flex items-center justify-around bg-gray-400 py-1">

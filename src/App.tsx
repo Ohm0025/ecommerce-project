@@ -1,10 +1,12 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomePage from "./page/homePage/HomePage";
-import AuthenPage from "./page/authenPage/AuthenPage";
 import ProductPage from "./page/productPage/ProductPage";
 import SearchBar from "./component/searchBar/SearchBar";
 import LayoutHome from "./layout/LayoutHome";
 import DetailPage from "./page/detailPage/DetailPage";
+import LayoutAuth from "./layout/LayoutAuth";
+import RegisterPage from "./page/registerPage/RegisterPage";
+import LoginPage from "./page/loginPage/LoginPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -29,7 +31,14 @@ function App() {
     },
     {
       path: "/authen",
-      element: <AuthenPage />,
+      element: <LayoutAuth />,
+      children: [
+        {
+          path: "",
+          element: <LoginPage />,
+        },
+        { path: "register", element: <RegisterPage /> },
+      ],
     },
   ]);
 
