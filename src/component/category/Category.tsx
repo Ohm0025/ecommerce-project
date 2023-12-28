@@ -14,16 +14,19 @@ const category: string[] = [
 const Category = (props: Props) => {
   const { listCat = category } = useCategory();
   return (
-    <div className="grid grid-cols-4 w-[80%] m-[auto]">
-      {listCat.map((item, index) => {
-        return (
-          <Link to={"/products/cat/" + item}>
-            <div className="w-[150px] h-[100px] m-[auto] flex items-center justify-center bg-gray-500">
-              <span className="text-center text-white">{item}</span>
-            </div>
-          </Link>
-        );
-      })}
+    <div className="flex flex-col w-full mt-[10px] bg-[white] shadow-md">
+      <div className="p-1">Categorys</div>
+      <div className="overflow-auto flex">
+        {listCat.map((item, index) => {
+          return (
+            <Link to={"/products/cat/" + item}>
+              <div className="h-[120px] w-[120px] border-[0.5px] border-l-0 border-gray-200 flex items-center">
+                <span className="text-center text-[black]">{item}</span>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 };

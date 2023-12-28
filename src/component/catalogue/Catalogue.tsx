@@ -33,10 +33,13 @@ const Catalogue = (props: Props) => {
       {productList.loading ? (
         <Spinner color="black" />
       ) : (
-        <div className="grid grid-cols-5 gap-4 w-[80%] mt-[50px] mx-[auto]">
+        <div className="grid grid-cols-2 gap-1 w-full my-[10px] px-1">
+          <div className="col-span-full font-semibold px-2">
+            Sample Products
+          </div>
           {productList.data.map((item) => {
             return (
-              <div className="flex flex-col justify-center items-center gap-3 w-[100px] h-[140px] mx-[auto]">
+              <div className="flex flex-col justify-center items-center gap-3 w-full h-[200px] mx-[auto] bg-[white] p-2 rounded-md shadow">
                 <img
                   src={item.image}
                   alt=""

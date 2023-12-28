@@ -47,7 +47,7 @@ function App() {
   ]);
 
   return (
-    <div className="flex flex-col min-h-[100vh]">
+    <div className="flex flex-col min-h-[100vh] min-w-[300px] bg-[#f7fafc]">
       <RouterProvider router={router}></RouterProvider>
     </div>
   );

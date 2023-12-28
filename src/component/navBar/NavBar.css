@@ -1,0 +1,6 @@
+.nav-bar-btn:hover svg {
+  fill: #3d8bfd;
+}
+.nav-bar-btn:hover span {
+  color: #3d8bfd;
+}

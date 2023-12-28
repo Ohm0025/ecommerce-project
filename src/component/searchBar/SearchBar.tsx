@@ -3,8 +3,12 @@ import Cart from "../cart/Cart";
 import { useSearchBar } from "./SearchBar.hook";
 import { Link } from "react-router-dom";
 import UserDropDown from "../userDropdown/UserDropDown";
+import Dropdown from "react-dropdown";
+import "./SearchBar.css";
 
 type Props = {};
+
+const mockCatList = ["All category", "cat1", "cat2", "cat3"];
 
 const SearchBar = (props: Props) => {
   const [openCart, setOpenCart] = useState(false);
@@ -14,6 +18,8 @@ const SearchBar = (props: Props) => {
 
   const suggestBox = React.useRef<HTMLInputElement | any>(null);
   const [openSuggest, setOpenSuggest] = useState(true);
+
+  const [catList, setCatList] = useState(mockCatList[0]);
 
   useEffect(() => {
     const handleClickOutSideSuggestBox = (e: any) => {
@@ -30,80 +36,30 @@ const SearchBar = (props: Props) => {
   }, [suggestBox]);
 
   return (
-    <div className="grid grid-cols-8 sm:grid-cols-12 items-center w-full py-3 px-2 min-w-[300px] max-w-[760px] m-[auto] relative">
-      <Link to={"/"}>
-        <img
-          src="https://img.freepik.com/premium-vector/abstract-modern-ecommerce-logo-design-colorful-gradient-happy-shopping-logo-template_467913-990.jpg"
-          alt="logo_web"
-          className="rounded-full w-[50px] block col-start-1"
-        />
-      </Link>
-      <div className="flex rounded-[20px] min-w-[300px] bg-[gray] justify-between border border-[gray] overflow-hidden col-start-2 col-end-7 sm:col-start-4 sm:col-end-10">
-        <input
-          {...fieldKeyword}
-          type="text"
-          placeholder="search here"
-          className="flex-1 px-3 py-2 outline-none text-[18px]"
+    <div className="col-span-full order-last flex flex-col items-center sm:border-2 sm:rounded-[10px] sm:border-[#3d8bfd] sm:bg-[#3d8bfd] gap-[1px]">
+      <input
+        {...fieldKeyword}
+        type="text"
+        placeholder="Search"
+        className="col-span-2 p-[8px] h-full border outline-none text-[18px] flex-1 w-full rounded-[8px] sm:rounded-l-[8px]"
+      />
+      <div className="grid grid-cols-2 w-full">
+        <Dropdown
+          className="custom-dropdown-root text-[14px]"
+          controlClassName="custom-dropdown-control"
+          arrowClassName="custom-dropdown-arrow"
+          arrowOpen={<i className="fa-solid fa-chevron-up"></i>}
+          arrowClosed={<i className="fa-solid fa-chevron-down"></i>}
+          options={mockCatList}
+          value={catList}
+          onChange={(e) => setCatList(e.value)}
         />
         <button
-          className="w-[50px] text-center p-3 text-white"
+          className="bg-[#3d8bfd] text-[white] px-4 py-2 col-span-1"
           onClick={() => listProducts()}>
-          <i className="fa-solid fa-magnifying-glass"></i>
+          Search
         </button>
       </div>
-      {suggestArr.length > 0 && openSuggest && (
-        <div
-          className="absolute top-[65px] left-[50%] translate-x-[-50%] bg-gray-300 w-[450px] z-20 overflow-auto"
-          ref={suggestBox}>
-          {suggestArr.slice(0, 5).map((item) => {
-            return (
-              <>
-                {item !== keyword && (
-                  <div
-                    onClick={() => {
-                      changeKeyword(item);
-                      listProducts(item);
-                    }}
-                    className="px-[7px] py-[5px] hover:bg-gray-500 hover:text-white hover:cursor-pointer">
-                    {item}
-                  </div>
-                )}
-              </>
-            );
-          })}
-        </div>
-      )}
-      <div className="flex justify-between col-start-11 col-span-2">
-        <div
-          className={`${
-            openCart ? "bg-gray-200 text-black" : "bg-[gray] text-white"
-          } w-[50px] rounded-full text-center`}>
-          <button
-            className="text-center p-3"
-            onClick={() => {
-              setOpenCart((prev) => !prev);
-              setOpenUser(false);
-            }}>
-            <i className="fa-solid fa-cart-shopping"></i>
-          </button>
-        </div>
-        <div
-          className={`${
-            openUser ? "bg-gray-200 text-black" : "bg-[gray] text-white"
-          } w-[50px] rounded-full text-center`}>
-          <button
-            className="text-center p-3 text-white"
-            onClick={() => {
-              setOpenUser((prev) => !prev);
-              setOpenCart(false);
-            }}>
-            <i className="fa-solid fa-user"></i>
-          </button>
-        </div>
-      </div>
-
-      <UserDropDown isOpen={openUser} />
-      <Cart listItem={["ekfpe", "hjge0oigjo", "eiohjg0"]} isOpen={openCart} />
     </div>
   );
 };

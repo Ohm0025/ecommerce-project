@@ -15,28 +15,32 @@ const Carousel = (props: Props) => {
     else setCurrent(current + 1);
   };
   return (
-    <div className="overflow-hidden relative">
+    <div className="overflow-hidden min-h-[200px] relative shadow-md">
       <div
-        className={`flex transition ease-out`}
+        className={`flex transition ease-out items-center`}
         style={{
           transform: `translateX(-${current * 100}%)`,
           transitionDuration: "1000ms",
         }}>
         {props.slides.map((s) => {
-          return <img src={s} />;
+          return <img src={s} className="" />;
         })}
       </div>
-      <div className="absolute top-0 h-full w-full justify-between items-center flex text-white px-10 text-3xl">
-        <button onClick={previousSlide}>previous</button>
-        <button onClick={nextSlide}>next</button>
+      <div className="absolute top-0 h-full w-full justify-between items-center flex text-white px-3 text-3xl">
+        <button onClick={previousSlide}>
+          <i className="fa-solid fa-chevron-left"></i>
+        </button>
+        <button onClick={nextSlide}>
+          <i className="fa-solid fa-chevron-right"></i>
+        </button>
       </div>
-      <div className="absolute bottom-0 flex justify-center w-full gap-5">
+      <div className="absolute bottom-0 flex justify-center w-full gap-5 pb-3">
         {props.slides.map((item, index) => {
           return (
             <button
               onClick={() => setCurrent(index)}
-              className={`rounded-full w-10 h-10 ${
-                current === index ? "bg-black" : "bg-white"
+              className={`rounded-full w-5 h-5 border border-[white] ${
+                current === index ? "bg-[gray]" : "bg-white"
               }`}></button>
           );
         })}
