@@ -14,7 +14,7 @@ const category: string[] = [
 const Category = (props: Props) => {
   const { listCat = category } = useCategory();
   return (
-    <div className="flex flex-col w-full mt-[10px] bg-[white] shadow-md">
+    <div className="flex flex-col w-full mt-[17px] bg-[white] shadow-md">
       <div className="p-1">Categorys</div>
       <div className="overflow-auto flex">
         {listCat.map((item, index) => {

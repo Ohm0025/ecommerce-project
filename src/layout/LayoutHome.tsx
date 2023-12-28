@@ -10,12 +10,14 @@ type Props = {};
 const LayoutHome = (props: Props) => {
   return (
     <div className="flex flex-col">
-      <div className="grid grid-cols-2 p-3 bg-white shadow-md">
+      <div className="grid grid-cols-2 gap-y-1 sm:grid-cols-8 p-3 bg-white shadow-md">
         <HeadBar />
         <SearchBar />
         <NavBar />
       </div>
-      <Outlet />
+      <div className="sm:w-[80%] m-auto">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

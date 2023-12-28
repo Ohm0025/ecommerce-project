@@ -15,7 +15,7 @@ const Carousel = (props: Props) => {
     else setCurrent(current + 1);
   };
   return (
-    <div className="overflow-hidden min-h-[200px] relative shadow-md">
+    <div className="overflow-hidden min-h-[200px] relative shadow-md sm:max-h-[420px]">
       <div
         className={`flex transition ease-out items-center`}
         style={{

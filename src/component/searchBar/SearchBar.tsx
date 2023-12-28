@@ -36,12 +36,12 @@ const SearchBar = (props: Props) => {
   }, [suggestBox]);
 
   return (
-    <div className="col-span-full order-last flex flex-col items-center sm:border-2 sm:rounded-[10px] sm:border-[#3d8bfd] sm:bg-[#3d8bfd] gap-[1px]">
+    <div className="col-span-full gap-[1px] order-last sm:order-1 sm:col-span-6 gap-y-1 grid grid-cols-1 sm:grid-cols-2 items-center sm:border-2 sm:rounded-[10px] sm:border-[#3d8bfd] sm:bg-[#3d8bfd] sm:min-w-[80%] sm:overflow-hidden sm:m-auto">
       <input
         {...fieldKeyword}
         type="text"
         placeholder="Search"
-        className="col-span-2 p-[8px] h-full border outline-none text-[18px] flex-1 w-full rounded-[8px] sm:rounded-l-[8px]"
+        className="p-[8px] h-full border outline-none text-[17px] flex-1 w-full rounded-[8px] sm:rounded-l-[8px] sm:rounded-r-none"
       />
       <div className="grid grid-cols-2 w-full">
         <Dropdown

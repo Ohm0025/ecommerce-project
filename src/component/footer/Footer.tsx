@@ -6,7 +6,7 @@ const Footer = (props: Props) => {
   return (
     <>
       <div className="mt-[auto] mb-[20px] w-full bg-white p-3 shadow">
-        <div className="grid grid-cols-2 gap-y-2">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-2">
           <div className="flex flex-col gap-1">
             <span className="font-semibold mb-1 px-4">ศูนย์ช่วยเหลือ</span>
             <div className="text-gray-500 text-sm">สั่งซื้อสินค้าอย่างไร</div>
