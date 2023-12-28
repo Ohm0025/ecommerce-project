@@ -6,7 +6,6 @@ type Props = {
 };
 
 const StarRating = ({ rate, full = 5 }: Props) => {
-  console.log(rate);
   const arr = new Array(full);
   let size = (100 * (rate || 0)) / full + "%";
   let fontSize = 25;

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useProductListStore } from "../../store/productList";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import Spinner from "../../component/spinner/Spinner";
 import ProductCard from "../../component/productCard/ProductCard";
 import FilterBox from "../../component/filterBox/FilterBox";
@@ -11,12 +11,14 @@ type Props = {};
 const ProductPage = (props: Props) => {
   const { productList, setProductList, fetchProductList } =
     useProductListStore();
-  const { currentCat } = useProductCategory();
+  const { currentCat, setCurrentCat } = useProductCategory();
 
   const [queryStr, setQueryStr] = useSearchParams();
   let title = queryStr.get("title") || "";
   let type = queryStr.get("type") || "";
 
+  const { cat } = useParams();
+  console.log(cat);
   useEffect(() => {
     setProductList({ data: [], loading: true, error: null });
     if (title && title.trim() !== "") {

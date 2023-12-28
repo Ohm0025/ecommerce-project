@@ -27,6 +27,10 @@ function App() {
           path: "products/:productId",
           element: <DetailPage />,
         },
+        {
+          path: "products/cat/:cat",
+          element: <ProductPage />,
+        },
       ],
     },
     {
