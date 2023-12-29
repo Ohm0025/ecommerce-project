@@ -3,6 +3,7 @@ import Dropdown from "react-dropdown";
 import CategoryFilter from "./setFilterSm/CategoryFilter";
 import BrandFilter from "./setFilterSm/BrandFilter";
 import PriceFilter from "./setFilterSm/PriceFilter";
+import RatingFilter from "./setFilterSm/RatingFilter";
 
 type Props = {};
 
@@ -14,6 +15,7 @@ const FilterSM = (props: Props) => {
       <CategoryFilter listCat={mockOptions} />
       <BrandFilter listBrands={mockOptions} />
       <PriceFilter />
+      <RatingFilter />
     </div>
   );
 };

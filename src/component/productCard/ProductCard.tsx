@@ -13,7 +13,7 @@ const ProductCard = (props: Props) => {
   return (
     <div
       onClick={() => navivate("/products/" + props.productDetail.id)}
-      className="w-[90%] m-auto h-[100px] grid grid-cols-3 grid-rows-1 gap-3 p-2 text-[12px] bg-white rounded shadow sm:max-w-[445px]">
+      className="w-[90%] mx-auto my-2 h-[100px] grid grid-cols-3 grid-rows-1 gap-3 p-2 text-[12px] bg-white rounded shadow sm:max-w-[725px] sm:min-h-[150px]">
       <div className="col-span-1 flex items-center justify-center p-1">
         <img
           className="h-full w-auto"

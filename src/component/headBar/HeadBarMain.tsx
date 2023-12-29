@@ -1,10 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const HeadBarMain = (props: Props) => {
+  const navigate = useNavigate();
   return (
-    <div className="flex items-center flex-1 order-1">
+    <div
+      className="flex items-center flex-1 order-1"
+      onClick={() => navigate("/")}>
       <svg
         className="cursor-pointer"
         width="117"
