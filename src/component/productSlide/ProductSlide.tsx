@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = {
   slides: string[];
@@ -14,20 +14,23 @@ const ProductSlide = (props: Props) => {
     if (current === props.slides.length - 1) setCurrent(0);
     else setCurrent(current + 1);
   };
+
+  useEffect(() => {
+    console.log(current);
+  }, [current]);
+
   return (
     <div className="overflow-hidden h-full relative">
       <div
-        className={`flex transition ease-out h-full justify-center items-center w-[${
-          props.slides.length * 100
-        }%]`}
+        className={`flex transition ease-out h-full items-center`}
         style={{
-          transform: `translateX(-${current * 50}%)`,
+          transform: `translateX(-${current * 100}%)`,
           transitionDuration: "1000ms",
         }}>
         {props.slides.map((s) => {
           return (
             <div
-              className={`p-4 h-full flex w-full justify-center items-center`}>
+              className={`p-4 h-full flex justify-center items-center min-w-[100%]`}>
               <img src={s} className="h-full w-auto mx-auto" />
             </div>
           );

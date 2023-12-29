@@ -35,7 +35,13 @@ const DetailPage = (props: Props) => {
               <ProductCounter btnWidth="230px" btnSize="40px" />
               <OrderButton />
             </div> */}
-            <ProductSlide slides={[productDetail.image, productDetail.image]} />
+            <ProductSlide
+              slides={[
+                productDetail.image,
+                productDetail.image,
+                productDetail.image,
+              ]}
+            />
           </div>
 
           <div className="w-full bg-white px-8 py-2">

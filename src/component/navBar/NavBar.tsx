@@ -5,7 +5,7 @@ type Props = {};
 
 const NavBar = (props: Props) => {
   return (
-    <div className="order-2 flex items-center flex-1 justify-end gap-7 pr-5 sm:pr-1 sm:gap-3 sm:justify-center">
+    <div className="order-2 flex items-center flex-1 justify-end gap-7 pr-5 sm:pr-1 sm:gap-3">
       <button className="flex flex-col items-center nav-bar-btn">
         <svg
           className="fill-[#8b96a5]"

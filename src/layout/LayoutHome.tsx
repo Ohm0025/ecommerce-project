@@ -27,7 +27,7 @@ const LayoutHome = (props: Props) => {
   }, [location]);
   return (
     <div className="flex flex-col">
-      <div className="grid grid-cols-2 gap-y-1 sm:grid-cols-8 p-3 bg-white shadow-md sticky top-0 z-[12]">
+      <div className="grid grid-cols-2 gap-y-1 sm:grid-cols-8 p-3 bg-white shadow-md sticky top-0 z-[12] sm:px-12">
         <HeadBar />
         {isHome ? (
           <SearchBar />
