@@ -7,6 +7,7 @@ import FilterBox from "../../component/filterBox/FilterBox";
 import { useProductCategory } from "../../store/categoryAll";
 import { Pagination } from "@mui/material";
 import "./ProductPage.css";
+import EmptyFound from "../../component/emptyFound/EmptyFound";
 
 type Props = {};
 
@@ -49,18 +50,21 @@ const ProductPage = (props: Props) => {
       ) : (
         <div className="min-h-[100vh] grid grid-cols-1 gap-1 mb-4">
           <FilterBox />
+
           {productList.data.length > 0 ? (
-            productList.data.map((item) => {
-              if (currentCat.length === 0 || !currentCat) {
-                return <ProductCard productDetail={item} />;
-              } else {
-                if (currentCat.includes(item.category)) {
+            <div className="min-h-[100vh] mt-1">
+              {productList.data.map((item) => {
+                if (currentCat.length === 0 || !currentCat) {
                   return <ProductCard productDetail={item} />;
+                } else {
+                  if (currentCat.includes(item.category)) {
+                    return <ProductCard productDetail={item} />;
+                  }
                 }
-              }
-            })
+              })}
+            </div>
           ) : (
-            <h1>emty</h1>
+            <EmptyFound setHeight="100vh" text="ไม่พบรายการที่ค้นหา" />
           )}
           <Pagination
             count={4}

@@ -4,6 +4,7 @@ import Spinner from "../../component/spinner/Spinner";
 import StarRating from "../../component/starRating/StarRating";
 import ProductCounter from "../../component/productCounter/ProductCounter";
 import OrderButton from "../../component/orderButton/OrderButton";
+import ProductSlide from "../../component/productSlide/ProductSlide";
 
 type Props = {};
 
@@ -16,8 +17,8 @@ const DetailPage = (props: Props) => {
         <Spinner color="black" />
       ) : (
         <div className="min-h-[100vh] bg-gray-200">
-          <div className="w-[70%] h-[45vh] max-h-[500px] m-[auto] grid grid-cols-3 bg-white mt-[30px]">
-            <div className="p-4 flex flex-col items-center justify-center">
+          <div className="w-full h-[60vh] m-[auto] bg-white border-b-2">
+            {/* <div className="p-4 flex flex-col items-center justify-center">
               <img
                 src={productDetail.image}
                 alt=""
@@ -33,18 +34,23 @@ const DetailPage = (props: Props) => {
               <span>{"$ " + productDetail.price}</span>
               <ProductCounter btnWidth="230px" btnSize="40px" />
               <OrderButton />
-            </div>
+            </div> */}
+            <ProductSlide slides={[productDetail.image, productDetail.image]} />
           </div>
 
-          <div className="w-[70%] m-[auto] bg-white mt-[30px] p-5">
-            <div className="flex flex-col mb-4">
-              <span className="bg-gray-200 p-2">หมวดหมู่</span>
-              <span className="pl-6">{productDetail.category}</span>
+          <div className="w-full bg-white px-8 py-2">
+            <div className="flex items-center py-1">
+              <StarRating rate={productDetail.rating?.rate} />
             </div>
-            <div className="flex flex-col">
-              <span className="bg-gray-200 p-2">รายละเอียดสินค้า</span>
-              <span className="pl-6">{productDetail.description}</span>
-            </div>
+            <div className="py-1">{productDetail.title}</div>
+            <div className="py-1">{"$ " + productDetail.price}</div>
+            <OrderButton
+              styleEdit={{ minWidth: "50%", maxWidth: "400px", margin: "auto" }}
+            />
+          </div>
+          <div className="w-full bg-white px-8 py-2 mb-2">
+            <p>{productDetail.description}</p>
+            <span className="text-[#1c77fd] text-sm">Read more</span>
           </div>
         </div>
       )}

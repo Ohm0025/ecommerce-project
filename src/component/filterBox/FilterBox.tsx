@@ -10,7 +10,7 @@ type Props = {};
 const FilterBox = (props: Props) => {
   //const { productCategories, setCurrentCat } = useFilterBox();
   return (
-    <div className="grid grid-cols-8 gap-1 bg-white p-2 mt-1 shadow sticky top-[150px] sm:top-[73px] left-0 z-10">
+    <div className="grid grid-cols-8 gap-1 bg-white p-2 mt-1 shadow sticky top-[138px] sm:top-[69px] left-0 z-10">
       <DropDownSort />
       <DropDownFilter />
       <div className="flex col-span-2 justify-center items-center border border-[#e1e1e1]-1 rounded-[7px] relative">
