@@ -48,11 +48,11 @@ const ProductPage = (props: Props) => {
           <Spinner color="black" />
         </div>
       ) : (
-        <div className="min-h-[100vh] grid grid-cols-1 gap-1 mb-4">
+        <div className="min-h-[100vh] grid grid-cols-1 sm:grid-cols-4 gap-1 mb-4">
           <FilterBox />
 
           {productList.data.length > 0 ? (
-            <div className="min-h-[100vh] mt-1">
+            <div className="min-h-[100vh] mt-1 col-span-3">
               {productList.data.map((item) => {
                 if (currentCat.length === 0 || !currentCat) {
                   return <ProductCard productDetail={item} />;

@@ -2,6 +2,7 @@
   grid-column: span 3 / span 3;
   border: 1px solid #e1e1e1;
   border-radius: 7px;
+  height: fit-content;
 }
 .custom-dropdown-control2 {
   display: flex;
@@ -12,10 +13,17 @@
 }
 .custom-dropdown-place2 {
 }
-.vertical {
-  border-left: 2px solid #e1e1e1;
-  height: 100%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+.dropdown-active {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+  transition: 500ms ease;
+}
+.dropdown-inactive {
+  opacity: 0;
+
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: 400ms ease-in-out;
 }

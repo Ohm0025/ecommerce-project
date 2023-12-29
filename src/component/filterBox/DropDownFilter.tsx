@@ -9,7 +9,7 @@ const DropDownFilter = (props: Props) => {
     <Dropdown
       options={mockList}
       placeholder={"Filter.."}
-      className="custom-dropdown-root2 text-[12px]"
+      className="custom-dropdown-root2 text-[12px] sm:hidden"
       controlClassName="custom-dropdown-control2"
       arrowClassName="custom-dropdown-arrow2"
       arrowOpen={

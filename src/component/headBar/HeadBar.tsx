@@ -6,25 +6,26 @@ import HeadBarAlter from "./HeadBarAlter";
 type Props = {};
 
 const HeadBar = (props: Props) => {
-  const location = useLocation();
-  const [isHome, setIsHome] = useState(true);
+  // const location = useLocation();
+  // const [isHome, setIsHome] = useState(true);
 
-  useEffect(() => {
-    let locationArr = location.pathname.split("/");
-    let getProductId = locationArr[locationArr.length - 1];
+  // useEffect(() => {
+  //   let locationArr = location.pathname.split("/");
+  //   let getProductId = locationArr[locationArr.length - 1];
 
-    if (locationArr.includes("products")) {
-      setIsHome(false);
+  //   if (locationArr.includes("products")) {
+  //     setIsHome(false);
 
-      // if (!isNaN(+getProductId)) {
-      //   console.log(getProductId);
-      // }
-    } else {
-      setIsHome(true);
-    }
-  }, [location]);
+  //     // if (!isNaN(+getProductId)) {
+  //     //   console.log(getProductId);
+  //     // }
+  //   } else {
+  //     setIsHome(true);
+  //   }
+  // }, [location]);
 
-  return <>{isHome ? <HeadBarMain /> : <HeadBarAlter />}</>;
+  return <HeadBarMain />;
+  // <>{isHome ? <HeadBarMain /> : <HeadBarAlter />}</>;
 };
 
 export default HeadBar;

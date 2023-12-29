@@ -10,7 +10,7 @@ const DropDownSort = (props: Props) => {
       options={mockList}
       placeholder="Sort"
       placeholderClassName="custom-dropdown-place2"
-      className="custom-dropdown-root2 text-[12px]"
+      className="custom-dropdown-root2 text-[12px] sm:hidden"
       controlClassName="custom-dropdown-control2"
       arrowClassName="custom-dropdown-arrow2"
       arrowOpen={

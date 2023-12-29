@@ -4,17 +4,18 @@ import CheckBox from "../checkBox/CheckBox";
 import "./FilterBox.css";
 import DropDownSort from "./DropDownSort";
 import DropDownFilter from "./DropDownFilter";
+import FilterSM from "./FilterSM";
 
 type Props = {};
 
 const FilterBox = (props: Props) => {
   //const { productCategories, setCurrentCat } = useFilterBox();
   return (
-    <div className="grid grid-cols-8 gap-1 bg-white p-2 mt-1 shadow sticky top-[138px] sm:top-[69px] left-0 z-10">
+    <div className="grid grid-cols-8 sm:grid-cols-1 gap-1 bg-white p-2 mt-1 shadow sticky top-[138px] sm:static left-0 z-10">
       <DropDownSort />
       <DropDownFilter />
-      <div className="flex col-span-2 justify-center items-center border border-[#e1e1e1]-1 rounded-[7px] relative">
-        <button className="flex-1 flex justify-center items-center h-full w-full border-r-[1px]">
+      <div className="flex col-span-2 justify-center items-center border border-[#e1e1e1]-1 rounded-[7px] relative sm:h-fit">
+        <button className="flex-1 flex justify-center items-center h-full w-full border-r-[1px] sm:py-2">
           <svg
             width="20"
             height="20"
@@ -45,6 +46,7 @@ const FilterBox = (props: Props) => {
           </svg>
         </button>
       </div>
+      <FilterSM />
       {/* <div>
         category
         <div>
