@@ -1,18 +1,27 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-type Props = {};
+type Props = {
+  editHeight?: string;
+  editSize?: string;
+  editLenth?: string;
+  register?: boolean;
+};
 
 const HeadBarMain = (props: Props) => {
   const navigate = useNavigate();
   return (
     <div
-      className="flex items-center flex-1 order-1"
+      className={"flex items-center flex-1 order-1"}
+      style={{
+        height: props.editHeight,
+        paddingLeft: `${props.register ? "30px" : ""}`,
+      }}
       onClick={() => navigate("/")}>
       <svg
         className="cursor-pointer"
-        width="117"
-        height="36"
+        width={props.editSize}
+        height={props.editLenth}
         viewBox="0 0 117 36"
         fill="none"
         xmlns="http://www.w3.org/2000/svg">
@@ -67,6 +76,11 @@ const HeadBarMain = (props: Props) => {
           </g>
         </g>
       </svg>
+      {props.register && (
+        <span className={`text-[27px] font-semibold ml-[-14px] text-[#0D6EFD]`}>
+          Register
+        </span>
+      )}
     </div>
   );
 };

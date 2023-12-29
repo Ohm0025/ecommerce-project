@@ -50,24 +50,24 @@ const RegisterPage = (props: Props) => {
           <span className="text-sm">
             {" "}
             I accept the{" "}
-            <span className="text-orange-500 font-semibold hover:text-blue-400 hover:underline">
+            <span className="text-[#0D6EFD] font-semibold hover:text-blue-400 hover:underline">
               Terms of Use
             </span>
             {" & "}
-            <span className="text-orange-500 font-semibold hover:text-blue-400 hover:underline">
+            <span className="text-[#0D6EFD] font-semibold hover:text-blue-400 hover:underline">
               Privacy Policy
             </span>
           </span>
         </div>
         <div className="mt-5">
-          <button className="rounded-lg bg-orange-500 text-white py-3 w-full">
+          <button className="rounded-lg bg-[#0D6EFD] text-white py-3 w-full">
             Register Now
           </button>
           <div className="text-center mt-5 text-sm">
             I've already have account go to{" "}
             <Link
               to="/authen"
-              className="text-orange-500 font-semibold hover:text-blue-400 hover:underline">
+              className="text-[#0D6EFD] font-semibold hover:text-blue-400 hover:underline">
               Login
             </Link>
           </div>

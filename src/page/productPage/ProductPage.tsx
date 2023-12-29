@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useProductListStore } from "../../store/productList";
 import { useParams, useSearchParams } from "react-router-dom";
 import Spinner from "../../component/spinner/Spinner";
@@ -15,6 +15,7 @@ const ProductPage = (props: Props) => {
   const { productList, setProductList, fetchProductList } =
     useProductListStore();
   const { currentCat, setCurrentCat } = useProductCategory();
+  const [currentPage, setCurrentPage] = useState(1);
 
   const [queryStr, setQueryStr] = useSearchParams();
   let title = queryStr.get("title") || "";
@@ -53,23 +54,29 @@ const ProductPage = (props: Props) => {
 
           {productList.data.length > 0 ? (
             <div className="min-h-[100vh] mt-1 col-span-3">
-              {productList.data.map((item) => {
-                if (currentCat.length === 0 || !currentCat) {
-                  return <ProductCard productDetail={item} />;
-                } else {
-                  if (currentCat.includes(item.category)) {
+              {productList.data
+                .slice((currentPage - 1) * 10, (currentPage - 1) * 10 + 10)
+                .map((item) => {
+                  if (currentCat.length === 0 || !currentCat) {
                     return <ProductCard productDetail={item} />;
+                  } else {
+                    if (currentCat.includes(item.category)) {
+                      return <ProductCard productDetail={item} />;
+                    }
                   }
-                }
-              })}
+                })}
             </div>
           ) : (
             <EmptyFound setHeight="100vh" text="ไม่พบรายการที่ค้นหา" />
           )}
           <Pagination
-            count={4}
-            className="pagination-product-page"
+            page={currentPage}
+            count={Math.ceil(productList.data.length / 10)}
+            className="pagination-product-page sm:col-span-full"
             sx={{ margin: "10px auto" }}
+            onChange={(event: React.ChangeEvent<unknown>, value: number) =>
+              setCurrentPage(value)
+            }
           />
         </div>
       )}

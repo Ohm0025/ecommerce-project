@@ -27,7 +27,7 @@ const LoginPage = (props: Props) => {
             {" "}
             I don't have account go to
             <Link
-              className="text-orange-500 font-semibold hover:text-blue-400 hover:underline"
+              className="text-[#0D6EFD] font-semibold hover:text-blue-400 hover:underline"
               to="register">
               {" "}
               Register
@@ -35,7 +35,7 @@ const LoginPage = (props: Props) => {
           </span>
         </div>
         <div className="mt-5">
-          <button className="rounded-lg bg-orange-500 text-white py-3 w-full">
+          <button className="rounded-lg bg-[#0D6EFD] text-white py-3 w-full">
             Login
           </button>
         </div>

@@ -7,6 +7,7 @@ import DetailPage from "./page/detailPage/DetailPage";
 import LayoutAuth from "./layout/LayoutAuth";
 import RegisterPage from "./page/registerPage/RegisterPage";
 import LoginPage from "./page/loginPage/LoginPage";
+import CheckOutPage from "./page/checkOutPage/CheckOutPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -30,6 +31,10 @@ function App() {
         {
           path: "products/cat/:cat",
           element: <ProductPage />,
+        },
+        {
+          path: "cart",
+          element: <CheckOutPage />,
         },
       ],
     },
