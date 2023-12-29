@@ -2,15 +2,18 @@ import React from "react";
 import { IProductListItem } from "../../interface/productList";
 import { formatProductTitle } from "../../utils/formatText";
 import StarRating from "../starRating/StarRating";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   productDetail: IProductListItem;
 };
 
 const ProductCard = (props: Props) => {
+  const navivate = useNavigate();
   return (
-    <div className="w-[90%] m-auto h-[100px] grid grid-cols-3 grid-rows-1 gap-3 p-2 text-[12px] bg-white rounded shadow">
+    <div
+      onClick={() => navivate("/products/" + props.productDetail.id)}
+      className="w-[90%] m-auto h-[100px] grid grid-cols-3 grid-rows-1 gap-3 p-2 text-[12px] bg-white rounded shadow sm:max-w-[445px]">
       <div className="col-span-1 flex items-center justify-center p-1">
         <img
           className="h-full w-auto"

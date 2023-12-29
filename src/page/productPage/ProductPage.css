@@ -1,0 +1,7 @@
+.pagination-product-page .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root {
+  color: #3d8bfd !important;
+}
+.pagination-product-page
+  .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  background-color: #90b6ee61;
+}

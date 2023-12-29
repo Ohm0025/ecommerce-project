@@ -5,6 +5,8 @@ import Spinner from "../../component/spinner/Spinner";
 import ProductCard from "../../component/productCard/ProductCard";
 import FilterBox from "../../component/filterBox/FilterBox";
 import { useProductCategory } from "../../store/categoryAll";
+import { Pagination } from "@mui/material";
+import "./ProductPage.css";
 
 type Props = {};
 
@@ -45,7 +47,7 @@ const ProductPage = (props: Props) => {
           <Spinner color="black" />
         </div>
       ) : (
-        <div className="min-h-[100vh] grid grid-cols-1 gap-1">
+        <div className="min-h-[100vh] grid grid-cols-1 gap-1 mb-4">
           <FilterBox />
           {productList.data.length > 0 ? (
             productList.data.map((item) => {
@@ -60,6 +62,11 @@ const ProductPage = (props: Props) => {
           ) : (
             <h1>emty</h1>
           )}
+          <Pagination
+            count={4}
+            className="pagination-product-page"
+            sx={{ margin: "10px auto" }}
+          />
         </div>
       )}
     </>

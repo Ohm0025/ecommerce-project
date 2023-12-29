@@ -14,7 +14,7 @@ let sampleSlides = [
 
 const HomePage = (props: Props) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col sm:w-[80%] sm:m-auto">
       <Carousel slides={sampleSlides} />
       <Category />
       <Catalogue />
