@@ -36,7 +36,7 @@ const SearchBar = (props: Props) => {
   }, [suggestBox]);
 
   return (
-    <div className="col-span-full gap-[1px] order-last sm:order-1 sm:col-span-6 gap-y-1 grid grid-cols-1 sm:grid-cols-2 items-center sm:border-2 sm:rounded-[10px] sm:border-[#3d8bfd] sm:bg-[#3d8bfd] sm:min-w-[80%] sm:overflow-hidden sm:m-auto">
+    <div className="col-span-full gap-[1px] order-last sm:order-1 sm:col-span-6 gap-y-1 grid grid-cols-1 sm:grid-cols-2 items-center sm:border-2 sm:rounded-[10px] sm:border-[#3d8bfd] sm:bg-[#3d8bfd] sm:min-w-[80%] sm:m-auto">
       <input
         {...fieldKeyword}
         type="text"
@@ -55,7 +55,7 @@ const SearchBar = (props: Props) => {
           onChange={(e) => setCatList(e.value)}
         />
         <button
-          className="bg-[#3d8bfd] text-[white] px-4 py-2 col-span-1"
+          className="bg-[#3d8bfd] text-[white] px-4 py-2 col-span-1 sm:rounded-[10px]"
           onClick={() => listProducts()}>
           Search
         </button>

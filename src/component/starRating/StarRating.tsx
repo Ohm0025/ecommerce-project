@@ -1,3 +1,4 @@
+import { Box, Rating } from "@mui/material";
 import React from "react";
 
 type Props = {
@@ -11,16 +12,19 @@ const StarRating = ({ rate, full = 5 }: Props) => {
   let fontSize = 25;
 
   return (
-    <div className="text-center h-[20px] w-[50%] relative left-0">
-      {arr.fill("i").map(() => {
-        return (
-          <i
-            className={`fa-regular fa-star text-[#000000] text-[135%] overflow-hidden z-10 relative`}></i>
-        );
-      })}
-      <div
-        className="h-[20px] bg-[yellow] absolute top-0 left-0"
-        style={{ width: size }}></div>
+    <div className="flex items-center justify-between gap-2">
+      <Rating
+        name="disabled"
+        value={rate}
+        precision={0.1}
+        disabled
+        size="small"
+        sx={{
+          color: "#ebb434",
+          opacity: "0.9 !important",
+        }}
+      />
+      {rate && <Box>{rate}</Box>}
     </div>
   );
 };

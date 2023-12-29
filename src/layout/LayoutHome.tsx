@@ -15,7 +15,7 @@ const LayoutHome = (props: Props) => {
         <SearchBar />
         <NavBar />
       </div>
-      <div className="sm:w-[80%] m-auto">
+      <div className="sm:w-[80%] sm:m-auto">
         <Outlet />
       </div>
       <Footer />

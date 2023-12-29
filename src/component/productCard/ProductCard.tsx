@@ -10,21 +10,21 @@ type Props = {
 
 const ProductCard = (props: Props) => {
   return (
-    <div className="w-[230px] h-[330px] p-2 text-[14px] bg-gray-400 shadow">
-      <div className="h-[70%]">
-        <Link to={`/products/${props.productDetail.id}`}>
-          <img
-            className="aspect-square w-[95%]"
-            src={props.productDetail.image}
-            alt="product_image"
-          />
-        </Link>
+    <div className="w-[90%] m-auto h-[100px] grid grid-cols-3 grid-rows-1 gap-3 p-2 text-[12px] bg-white rounded shadow">
+      <div className="col-span-1 flex items-center justify-center p-1">
+        <img
+          className="h-full w-auto"
+          src={props.productDetail.image}
+          alt="product_image"
+        />
       </div>
-      <div>{formatProductTitle(props.productDetail.title, 30)}</div>
-      <div>{"$ " + props.productDetail.price}</div>
-      <div className="flex justify-between">
-        <StarRating rate={props.productDetail.rating.rate} />
-        <span>{props.productDetail.rating.count}</span>
+      <div className="col-span-2">
+        <div>{formatProductTitle(props.productDetail.title, 30)}</div>
+        <div>{"$ " + props.productDetail.price}</div>
+        <div className="flex justify-between">
+          <StarRating rate={props.productDetail.rating.rate} />
+          <span>{props.productDetail.rating.count}</span>
+        </div>
       </div>
     </div>
   );

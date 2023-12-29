@@ -1,0 +1,21 @@
+.custom-dropdown-root2 {
+  grid-column: span 3 / span 3;
+  border: 1px solid #e1e1e1;
+  border-radius: 7px;
+}
+.custom-dropdown-control2 {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 7px !important;
+}
+.custom-dropdown-arrow2 {
+}
+.custom-dropdown-place2 {
+}
+.vertical {
+  border-left: 2px solid #e1e1e1;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
