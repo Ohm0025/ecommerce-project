@@ -14,12 +14,10 @@ interface IRegisterObj {
   phone?: string;
 }
 
-const registerRequest = async (registerObj: IRegisterObj) => {
+const registerRequest = async (registerObj: IRegisterObj): Promise<any> => {
   try {
-    const res = await axios.post(
-      `${API_URL}/users/add`,
-      JSON.stringify(registerObj)
-    );
+    const res = await axios.post(`${API_URL}/users/add`, { ...registerObj });
+
     return handleResponse.success(res);
   } catch (err: any) {
     return handleResponse.error(err);

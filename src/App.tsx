@@ -8,8 +8,13 @@ import LayoutAuth from "./layout/LayoutAuth";
 import RegisterPage from "./page/registerPage/RegisterPage";
 import LoginPage from "./page/loginPage/LoginPage";
 import CheckOutPage from "./page/checkOutPage/CheckOutPage";
+import BackDropLoading from "./component/backDropLoading/BackDropLoading";
+import { useLoading } from "./store/loadingState";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
+  const { isLoading, openIsLoading, closeIsLoading } = useLoading();
   const router = createBrowserRouter([
     {
       path: "/",
@@ -51,9 +56,31 @@ function App() {
     },
   ]);
 
+  const TextBackDrop = () => {
+    return (
+      <div>
+        <button className="bg-indigo-400" onClick={openIsLoading}>
+          OPEN
+        </button>
+      </div>
+    );
+  };
   return (
     <div className="flex flex-col min-h-[100vh] min-w-[300px] bg-[#f7fafc]">
       <RouterProvider router={router}></RouterProvider>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      <BackDropLoading open={isLoading} handleClose={closeIsLoading} />
     </div>
   );
 }

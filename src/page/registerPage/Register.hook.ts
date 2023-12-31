@@ -1,7 +1,14 @@
 import { useForm } from "react-hook-form";
-import { IRegisterObj } from "../../services/register";
+import { IRegisterObj, registerRequest } from "../../services/register";
+import { useLoading } from "../../store/loadingState";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const useRegister = () => {
+  const navigate = useNavigate();
+
+  const { openIsLoading, closeIsLoading } = useLoading();
+
   const {
     register,
     handleSubmit,
@@ -13,12 +20,18 @@ const useRegister = () => {
   const registerObj = watch("registerObj");
 
   const onSubmit = async (data: any) => {
-    console.log(data);
-    console.log("submit");
-    if (errors) {
-      console.log(errors);
+    openIsLoading();
+    const res = await registerRequest(data);
+    if (res.status === 200) {
+      if (res.data?.email === data.email) {
+        localStorage.setItem("authToken", "isLogin");
+        toast.success("register success");
+        navigate("/");
+        location.reload();
+      }
+      closeIsLoading();
     } else {
-      console.log(data);
+      toast.error(res.error);
     }
   };
   return {
