@@ -17,7 +17,7 @@ interface IRegisterObj {
 const registerRequest = async (registerObj: IRegisterObj) => {
   try {
     const res = await axios.post(
-      `${API_URL}/users`,
+      `${API_URL}/users/add`,
       JSON.stringify(registerObj)
     );
     return handleResponse.success(res);

@@ -49,7 +49,7 @@ const ProductPage = (props: Props) => {
           <Spinner color="black" />
         </div>
       ) : (
-        <div className="min-h-[100vh] grid grid-cols-1 sm:grid-cols-4 gap-1 mb-4">
+        <div className="min-h-[100vh] grid grid-cols-1 sm:grid-cols-4 gap-1 mb-4 sm:w-[80%] sm:mx-auto">
           <FilterBox />
 
           {productList.data.length > 0 ? (

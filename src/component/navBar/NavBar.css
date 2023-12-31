@@ -4,3 +4,13 @@
 .nav-bar-btn:hover span {
   color: #3d8bfd;
 }
+.nav-bar-btn.open {
+  background-color: #4b92fb33;
+  border-radius: 100%;
+}
+.nav-bar-btn.open svg {
+  fill: #3d8bfd;
+}
+.nav-bar-btn.open span {
+  color: #3d8bfd;
+}

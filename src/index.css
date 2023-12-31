@@ -6,3 +6,27 @@
   border: none;
   padding: 10px;
 }
+
+input[type="checkbox"] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -o-appearance: none;
+  outline: none;
+  content: none;
+}
+
+input[type="checkbox"]:checked:before {
+  font-family: "FontAwesome";
+  content: "\2713";
+  position: relative;
+  top: -50%;
+  transform: translateY(19%);
+  display: block;
+  font-size: 0.75rem;
+  color: white !important;
+}
+
+input[type="checkbox"]:checked {
+  border: 1px solid #0d6efd;
+  background-color: #0d6efd;
+}

@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NavBar.css";
+import ProfileMenu from "./profileMenu/ProfileMenu";
 
 type Props = {};
 
 const NavBar = (props: Props) => {
+  const [openAuth, setOpenAuth] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
   return (
-    <div className="order-2 flex items-center flex-1 justify-end gap-7 pr-5 sm:pr-1 sm:gap-3">
-      <button className="flex flex-col items-center nav-bar-btn">
+    <div className="order-2 flex items-center flex-1 justify-end gap-7 pr-5 sm:pr-1 sm:gap-3 sm:relative">
+      <button
+        onClick={() => setOpenCart((prev) => !prev)}
+        className={`flex flex-col items-center nav-bar-btn p-[0.34rem] ${
+          openCart ? "open" : ""
+        }`}>
         <svg
           className="fill-[#8b96a5]"
           width="27"
@@ -19,7 +26,11 @@ const NavBar = (props: Props) => {
           MyCart
         </span>
       </button>
-      <button className="flex flex-col items-center nav-bar-btn">
+      <button
+        onClick={() => setOpenAuth((prev) => !prev)}
+        className={`flex flex-col items-center nav-bar-btn p-[0.34rem] ${
+          openAuth ? "open" : ""
+        }`}>
         <svg
           className="fill-[#8b96a5]"
           width="27"
@@ -32,6 +43,7 @@ const NavBar = (props: Props) => {
           Profile
         </span>
       </button>
+      <ProfileMenu isOpen={openAuth} />
     </div>
   );
 };

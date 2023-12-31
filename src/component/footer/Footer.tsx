@@ -1,11 +1,16 @@
 import React from "react";
 
-type Props = {};
+type Props = {
+  isAuth: boolean;
+};
 
 const Footer = (props: Props) => {
   return (
     <>
-      <div className="mt-[auto] mb-[20px] w-full bg-white p-3 shadow">
+      <div
+        className={`mt-[auto] mb-[20px] w-full bg-white p-3 shadow ${
+          props.isAuth ? "mt-0" : ""
+        }`}>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-2">
           <div className="flex flex-col gap-1">
             <span className="font-semibold mb-1 px-4">ศูนย์ช่วยเหลือ</span>

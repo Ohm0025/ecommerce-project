@@ -1,0 +1,37 @@
+.profile-active,
+.profile-inactive {
+  width: 30%;
+  min-width: 300px;
+  background-color: #6c9fec;
+}
+
+.profile-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(12px);
+  transition: 500ms ease;
+  z-index: -2;
+}
+.profile-inactive {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: 400ms ease-in-out;
+  z-index: -2;
+}
+
+.profile-active::before {
+  content: " ";
+  display: block;
+  border-style: solid;
+  border: none;
+  width: 0.8rem;
+  height: 0.8rem;
+  transform: rotate(45deg);
+  border-color: transparent;
+  position: absolute;
+  top: -0.4rem;
+  right: 20px;
+  z-index: -1;
+  background-color: #6c9fec;
+}
