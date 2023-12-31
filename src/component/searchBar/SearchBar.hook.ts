@@ -3,6 +3,7 @@ import { useProductListStore } from "../../store/productList";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { searchProduct } from "../../services/searchProduct";
+import { getAllProduct } from "../../services/product";
 
 const useSearchBar = () => {
   const {
@@ -44,9 +45,10 @@ const useSearchBar = () => {
 
   const callData = async () => {
     setFetchProductList({ data: [], loading: true, error: null });
-    const responseList = await searchProduct.fetchAllProduct();
-    if (responseList.status === 200) {
-      const rawProductList = responseList.data;
+    const responseList = await getAllProduct();
+    console.log(responseList);
+    if (responseList?.status === 200) {
+      const rawProductList = responseList.data.products;
       if (rawProductList) {
         setFetchProductList({
           data: rawProductList,

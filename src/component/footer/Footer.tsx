@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  isAuth: boolean;
+  isAuth?: boolean;
 };
 
 const Footer = (props: Props) => {

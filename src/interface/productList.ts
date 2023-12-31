@@ -20,5 +20,6 @@ export interface IProductListItem {
   price: string;
   category: string;
   description: string;
-  image: string;
+  images: string[];
+  thumbnail: string;
 }

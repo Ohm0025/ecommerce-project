@@ -22,8 +22,8 @@ const Carousel = (props: Props) => {
           transform: `translateX(-${current * 100}%)`,
           transitionDuration: "1000ms",
         }}>
-        {props.slides.map((s) => {
-          return <img src={s} className="" />;
+        {props.slides.map((s, i) => {
+          return <img src={s} className="" key={`carousel-img-${i}`} />;
         })}
       </div>
       <div className="absolute top-0 h-full w-full justify-between items-center flex text-white px-3 text-3xl">
@@ -38,6 +38,7 @@ const Carousel = (props: Props) => {
         {props.slides.map((item, index) => {
           return (
             <button
+              key={`carousel-btn-${index}`}
               onClick={() => setCurrent(index)}
               className={`rounded-full w-5 h-5 border border-[white] ${
                 current === index ? "bg-[gray]" : "bg-white"

@@ -41,7 +41,7 @@ const Catalogue = (props: Props) => {
             return (
               <div className="flex flex-col justify-center items-center gap-3 w-full h-[200px] mx-[auto] bg-[white] p-2 rounded-md shadow">
                 <img
-                  src={item.image}
+                  src={item.thumbnail}
                   alt=""
                   className="w-[100px] aspect-square"
                 />
