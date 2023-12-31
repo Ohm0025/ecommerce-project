@@ -1,25 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useLogin } from "./Login.hook";
+import RegisterInputText from "../../component/registerInputText/RegisterInputText";
 
 type Props = {};
 
 const LoginPage = (props: Props) => {
+  const { handleSubmit, onSubmit, fieldLogin, errors } = useLogin();
   return (
     <div className="w-full lg:w-1/2 py-16 px-12">
       <h2 className="text-3xl mb-4">Login</h2>
 
-      <form action="#">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mt-5">
-          <input
-            type="email"
-            placeholder="Email"
-            className="border border-gray-400 py-1 px-2 w-full"></input>
+          <RegisterInputText
+            objInput={fieldLogin("username", {
+              required: { value: true, message: "username is required" },
+            })}
+            errors={errors}
+            type="text"
+          />
         </div>
         <div className="mt-5">
-          <input
+          <RegisterInputText
+            objInput={fieldLogin("password", {
+              required: { value: true, message: "password is required" },
+            })}
+            errors={errors}
             type="password"
-            placeholder="Password"
-            className="border border-gray-400 py-1 px-2 w-full"></input>
+          />
         </div>
 
         <div className="mt-5">
@@ -35,7 +44,9 @@ const LoginPage = (props: Props) => {
           </span>
         </div>
         <div className="mt-5">
-          <button className="rounded-lg bg-[#0D6EFD] text-white py-3 w-full">
+          <button
+            type="submit"
+            className="rounded-lg bg-[#0D6EFD] text-white py-3 w-full">
             Login
           </button>
         </div>
