@@ -11,6 +11,7 @@ const NavBar = (props: Props) => {
     <div className="order-2 flex items-center flex-1 justify-end gap-7 pr-5 sm:pr-1 sm:gap-3 sm:relative">
       <button
         onClick={() => setOpenCart((prev) => !prev)}
+        id="cartBtn"
         className={`flex flex-col items-center nav-bar-btn p-[0.34rem] ${
           openCart ? "open" : ""
         }`}>

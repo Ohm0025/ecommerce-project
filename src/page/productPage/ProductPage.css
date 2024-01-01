@@ -5,3 +5,64 @@
   .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
   background-color: #90b6ee61;
 }
+
+:root {
+  --color-1: #eaeaea;
+  --color-2: #2dedbd;
+  --color-3: #494949;
+}
+
+.flyingBtn {
+  z-index: 30;
+  transform-origin: center bottom;
+  transform: scale(1);
+  background-color: #3d8bfd;
+}
+
+#cartBtn {
+  outline: none;
+  position: relative;
+}
+
+button[data-count]::after {
+  content: attr(data-count);
+  display: block;
+  position: absolute;
+  font-size: 0.7rem;
+  background: #3d8bfd;
+  color: white;
+  font-weight: bold;
+  border-radius: 100px;
+  padding: 0 0.25em;
+  right: -8%;
+  top: -5%;
+}
+button[data-count].addedCount::after {
+  animation-name: shakeUp;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+@keyframes shakeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-addToCart]::before {
+  background: var(--color-2);
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 100%;
+  color: white;
+  outline: none;
+}

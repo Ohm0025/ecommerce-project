@@ -80,7 +80,9 @@ function App() {
         pauseOnHover
         theme="colored"
       />
-      <BackDropLoading open={isLoading} handleClose={closeIsLoading} />
+      {isLoading && (
+        <BackDropLoading open={isLoading} handleClose={closeIsLoading} />
+      )}
     </div>
   );
 }
