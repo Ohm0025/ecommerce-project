@@ -43,11 +43,15 @@ const Catalogue = (props: Props) => {
                 key={`sample-product-img-${index}`}
                 className="grid grid-rows-5 w-full max-w-[250px] gap-[1.25rem] h-[300px] bg-[white] py-4 px-2 rounded-md shadow">
                 <img
-                  src={item.images[0] || item.thumbnail}
+                  src={
+                    item.images[0] ||
+                    item.images[item.images.length - 1] ||
+                    item.thumbnail
+                  }
                   alt=""
                   className="h-full w-auto mx-auto row-span-3"
                 />
-                <div className="flex flex-col row-span-2 px-4 justify-center">
+                <div className="flex flex-col row-span-2 px-4 justify-center gap-2">
                   <span>{"$ " + item.price}</span>
                   <span className="text-gray-400 text-sm">{item.title}</span>
                 </div>

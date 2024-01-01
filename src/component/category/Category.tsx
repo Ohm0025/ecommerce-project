@@ -1,6 +1,7 @@
 import React from "react";
 import useCategory from "./Category.hook";
 import { Link } from "react-router-dom";
+import { productCategory } from "../../services/ProductCategory";
 
 type Props = {};
 
@@ -12,16 +13,27 @@ const category: string[] = [
 ];
 
 const Category = (props: Props) => {
-  const { listCat = category } = useCategory();
+  const { listCat = category, listImg } = useCategory();
+  console.log(listImg);
   return (
     <div className="flex flex-col w-full mt-[17px] bg-[white] shadow-md">
       <div className="p-1">Categorys</div>
-      <div className="overflow-auto flex">
+      <div className="flex overflow-x-auto">
         {listCat.map((item, index) => {
           return (
             <Link to={"/products/cat/" + item}>
-              <div className="h-[120px] w-[120px] border-[0.5px] border-l-0 border-gray-200 flex items-center">
-                <span className="text-center text-[black]">{item}</span>
+              <div className="h-[170px] w-[150px] border-[0.5px] border-l-0 border-gray-200 hover:bg-[#8CB7F5] grid grid-rows-[2fr_1fr] items-center justify-center relative py-1">
+                <img
+                  src={
+                    listImg.find((item2) => item2.productTitle === item)
+                      ?.productImg
+                  }
+                  alt=""
+                  className="w-full h-[120px] block"
+                />
+                <div className="text-center text-sm text-[black] relative bottom-0 p-2">
+                  {item}
+                </div>
               </div>
             </Link>
           );
