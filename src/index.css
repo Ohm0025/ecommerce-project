@@ -30,3 +30,18 @@ input[type="checkbox"]:checked {
   border: 1px solid #0d6efd;
   background-color: #0d6efd;
 }
+
+body *::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  width: 0.5px;
+}
+
+/* Handle */
+body *::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+body *::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

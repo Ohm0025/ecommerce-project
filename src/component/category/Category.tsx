@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useCategory from "./Category.hook";
 import { Link } from "react-router-dom";
 import { productCategory } from "../../services/ProductCategory";
@@ -14,11 +14,11 @@ const category: string[] = [
 
 const Category = (props: Props) => {
   const { listCat = category, listImg } = useCategory();
-  console.log(listImg);
+
   return (
-    <div className="flex flex-col w-full mt-[17px] bg-[white] shadow-md">
+    <div className="flex flex-col w-full mt-[17px] bg-[white] shadow-md rounded-md overflow-hidden">
       <div className="p-1">Categorys</div>
-      <div className="flex overflow-x-auto">
+      <div className="flex overflow-x-auto slider">
         {listCat.map((item, index) => {
           return (
             <Link to={"/products/cat/" + item}>
