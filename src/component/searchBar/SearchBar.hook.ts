@@ -18,8 +18,13 @@ const useSearchBar = () => {
 
   const [suggestArr, setSuggestArr] = useState<Array<string>>([]);
 
-  const { setFetchProductList, setProductList, fetchProductList } =
-    useProductListStore();
+  const {
+    setFetchProductList,
+    setProductList,
+    productTotal,
+    setProductTotal,
+    fetchProductList,
+  } = useProductListStore();
 
   const navigate = useNavigate();
   const keyword = watch("keyword");
@@ -46,8 +51,8 @@ const useSearchBar = () => {
   const callData = async () => {
     setFetchProductList({ data: [], loading: true, error: null });
     const responseList = await getAllProduct();
-    console.log(responseList);
     if (responseList?.status === 200) {
+      const rawTotal = responseList.data.total;
       const rawProductList = responseList.data.products;
       if (rawProductList) {
         setFetchProductList({
@@ -55,6 +60,11 @@ const useSearchBar = () => {
           loading: false,
           error: null,
         });
+      }
+      if (rawTotal) {
+        setProductTotal(rawTotal);
+      } else {
+        setProductTotal(0);
       }
     } else {
       setFetchProductList({
@@ -75,6 +85,7 @@ const useSearchBar = () => {
     suggestArr,
     listProducts,
     keyword,
+    productTotal,
   };
 };
 

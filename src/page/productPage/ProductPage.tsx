@@ -22,7 +22,7 @@ const ProductPage = (props: Props) => {
   let type = queryStr.get("type") || "";
 
   const { cat } = useParams();
-  console.log(cat);
+
   useEffect(() => {
     setProductList({ data: [], loading: true, error: null });
     if (title && title.trim() !== "") {
@@ -56,12 +56,22 @@ const ProductPage = (props: Props) => {
             <div className="min-h-[100vh] mt-1 col-span-3">
               {productList.data
                 .slice((currentPage - 1) * 10, (currentPage - 1) * 10 + 10)
-                .map((item) => {
+                .map((item, index) => {
                   if (currentCat.length === 0 || !currentCat) {
-                    return <ProductCard productDetail={item} />;
+                    return (
+                      <ProductCard
+                        productDetail={item}
+                        key={`product-card-${index}`}
+                      />
+                    );
                   } else {
                     if (currentCat.includes(item.category)) {
-                      return <ProductCard productDetail={item} />;
+                      return (
+                        <ProductCard
+                          productDetail={item}
+                          key={`product-card-${index}`}
+                        />
+                      );
                     }
                   }
                 })}

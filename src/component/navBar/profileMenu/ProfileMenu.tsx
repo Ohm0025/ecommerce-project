@@ -17,6 +17,9 @@ const ProfileMenu = ({ isOpen }: Props) => {
         isOpen ? "active" : "inactive"
       } absolute top-[100%] right-0`}>
       <ul className={`px-2 py-1`}>
+        <li className="text-[white] py-1 text-center">
+          {token ? "Hi , client one-one" : "Hi , guest"}
+        </li>
         <li
           className="text-[white] py-1 text-center cursor-pointer"
           onClick={() => navigate("/authen")}>

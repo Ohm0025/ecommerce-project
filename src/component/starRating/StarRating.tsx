@@ -12,7 +12,7 @@ const StarRating = ({ rate, full = 5 }: Props) => {
   let fontSize = 25;
 
   return (
-    <div className="flex items-center justify-between gap-2">
+    <div className="flex items-end justify-between gap-2">
       <Rating
         name="disabled"
         value={rate}
@@ -24,7 +24,7 @@ const StarRating = ({ rate, full = 5 }: Props) => {
           opacity: "0.9 !important",
         }}
       />
-      {rate && <Box>{rate}</Box>}
+      {rate && <Box color={"#ffcc00"}>{"(" + rate + ")"}</Box>}
     </div>
   );
 };

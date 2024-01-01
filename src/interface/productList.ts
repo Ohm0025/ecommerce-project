@@ -10,16 +10,19 @@ export interface IProductDetail {
   category: string;
   description: string;
   image: string;
-  rating?: IRating;
+  rating?: number;
+  stock: number;
 }
 
 export interface IProductListItem {
-  rating: IRating;
+  rating: number;
   id: number;
   title: string;
-  price: string;
+  price: number;
   category: string;
   description: string;
   images: string[];
   thumbnail: string;
+  stock: number;
+  discountPercentage: number;
 }
