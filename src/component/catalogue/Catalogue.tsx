@@ -11,11 +11,11 @@ const Catalogue = (props: Props) => {
 
   const callData = () => {
     let randomStart = Math.floor(
-      Math.random() * (fetchProductList.data.length - 11)
+      Math.random() * (fetchProductList.data.length - 21)
     );
     const spliceList = fetchProductList.data.slice(
       randomStart,
-      randomStart + 10
+      randomStart + 20
     );
     setProductList({
       data: spliceList,
@@ -33,22 +33,24 @@ const Catalogue = (props: Props) => {
       {productList.loading ? (
         <Spinner color="black" />
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 w-full my-[10px] px-1">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 w-full my-[10px] px-1">
           <div className="col-span-full font-semibold px-2">
             Sample Products
           </div>
-          {productList.data.map((item) => {
+          {productList.data.map((item, index) => {
             return (
-              <div className="flex flex-col justify-center items-center gap-3 w-full h-[200px] mx-[auto] bg-[white] p-2 rounded-md shadow">
+              <div
+                key={`sample-product-img-${index}`}
+                className="grid grid-rows-5 w-full max-w-[250px] gap-[1.25rem] h-[300px] bg-[white] py-4 px-2 rounded-md shadow">
                 <img
-                  src={item.thumbnail}
+                  src={item.images[0] || item.thumbnail}
                   alt=""
-                  className="w-[100px] aspect-square"
+                  className="h-full w-auto mx-auto row-span-3"
                 />
-                <span>
-                  {"$ "}
-                  {item.price}
-                </span>
+                <div className="flex flex-col row-span-2 px-4 justify-center">
+                  <span>{"$ " + item.price}</span>
+                  <span className="text-gray-400 text-sm">{item.title}</span>
+                </div>
               </div>
             );
           })}
