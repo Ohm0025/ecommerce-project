@@ -38,7 +38,7 @@ const LayoutHome = (props: Props) => {
         <NavBar />
         <NavPage />
       </div>
-      <div className="mt-[40px]">
+      <div className="sm:mt-[40px]">
         <Outlet />
       </div>
 

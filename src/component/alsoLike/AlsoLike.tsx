@@ -1,8 +1,5 @@
 import React from "react";
-import ListCartItem from "../../component/listCartItem/ListCartItem";
-import ListCartButton from "../../component/listCartButton/ListCartButton";
-import ListCartCheckOut from "../../component/listCartCheckOut/ListCartCheckOut";
-import AlsoLike from "../../component/alsoLike/AlsoLike";
+import SuggestItem from "./suggestItem/SuggestItem";
 
 type Props = {};
 
@@ -25,26 +22,17 @@ const mockProductList = [
   },
 ];
 
-const CheckOutPage = (props: Props) => {
+const AlsoLike = (props: Props) => {
   return (
-    <div className="min-h-[100vh] sm:w-[80%] mx-auto">
-      <div className="font-semibold text-[20px] col-span-full self-center mb-3">
-        My Cart <span>{`( ${3} )`}</span>
+    <div className="mt-5 bg-white py-4 px-2 rounded-md overflow-hidden shadow">
+      <div className="font-semibold px-3 pb-3">You also like</div>
+      <div className="flex gap-3 justify-around overflow-x-auto">
+        {mockProductList.map((item) => {
+          return <SuggestItem listItem={item} />;
+        })}
       </div>
-      <div className="flex gap-5 flex-col md:flex-row ">
-        <div className="flex flex-col border shadow bg-white border-gray-200 rounded-md overflow-x-hidden px-4 max-h-[400px] w-full">
-          <div className="overflow-y-auto">
-            {mockProductList.map((item, index) => {
-              return <ListCartItem item={item} />;
-            })}
-          </div>
-          <ListCartButton />
-        </div>
-        <ListCartCheckOut />
-      </div>
-      <AlsoLike />
     </div>
   );
 };
 
-export default CheckOutPage;
+export default AlsoLike;

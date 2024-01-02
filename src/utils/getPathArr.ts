@@ -1,7 +1,5 @@
 import { useNavigate } from "react-router-dom";
 
-const navigate = useNavigate();
-
 const getPathArr = (
   currentPath: string,
   query?: string | undefined,
@@ -30,6 +28,7 @@ const getPathArr = (
 type GetOnClickType = () => void;
 
 const getOnClick = (pathTitle: string, subpath?: string): GetOnClickType => {
+  const navigate = useNavigate();
   let distination = "";
   switch (pathTitle) {
     case "Home":
