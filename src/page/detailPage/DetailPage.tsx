@@ -10,7 +10,7 @@ type Props = {};
 
 const DetailPage = (props: Props) => {
   const { productDetail, loading, changeLoading } = useDetailPage();
-  console.log(productDetail.image);
+
   return (
     <>
       {loading ? (
@@ -46,7 +46,7 @@ const DetailPage = (props: Props) => {
 
           <div className="w-full bg-white px-8 py-2">
             <div className="flex items-center py-1">
-              <StarRating rate={productDetail.rating?.rate} />
+              <StarRating rate={productDetail.rating} />
             </div>
             <div className="py-1">{productDetail.title}</div>
             <div className="py-1">{"$ " + productDetail.price}</div>

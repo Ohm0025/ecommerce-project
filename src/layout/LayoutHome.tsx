@@ -4,6 +4,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../component/footer/Footer";
 import HeadBar from "../component/headBar/HeadBar";
 import NavBar from "../component/navBar/NavBar";
+import NavPage from "../component/navPage/NavPage";
 
 type Props = {};
 
@@ -35,9 +36,11 @@ const LayoutHome = (props: Props) => {
           <div className="col-span-full gap-[1px] order-last sm:order-1 sm:col-span-6 gap-y-1 grid grid-cols-1 sm:grid-cols-2 sm:min-w-[80%] sm:m-auto"></div>
         )}
         <NavBar />
+        <NavPage />
       </div>
-
-      <Outlet />
+      <div className="mt-[40px]">
+        <Outlet />
+      </div>
 
       <Footer />
     </div>

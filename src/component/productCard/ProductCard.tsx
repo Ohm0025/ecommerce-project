@@ -59,7 +59,9 @@ const ProductCard = (props: Props) => {
         <div className="mt-[7px]">
           <button
             className="font-semibold text-[#0D6EFD]"
-            onClick={() => navivate("/products/" + props.productDetail.id)}>
+            onClick={() =>
+              navivate("/products/detail/" + props.productDetail.id)
+            }>
             View details
           </button>
         </div>

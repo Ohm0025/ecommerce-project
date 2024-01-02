@@ -30,15 +30,19 @@ function App() {
           element: <ProductPage />,
         },
         {
-          path: "products/:productId",
-          element: <DetailPage />,
-        },
-        {
-          path: "products/cat/:cat",
+          path: "products/search/:q/:brand",
           element: <ProductPage />,
         },
         {
-          path: "cart",
+          path: "products/detail/:productId",
+          element: <DetailPage />,
+        },
+        {
+          path: "products/category/:cat",
+          element: <ProductPage />,
+        },
+        {
+          path: "checkout",
           element: <CheckOutPage />,
         },
       ],
@@ -56,15 +60,6 @@ function App() {
     },
   ]);
 
-  const TextBackDrop = () => {
-    return (
-      <div>
-        <button className="bg-indigo-400" onClick={openIsLoading}>
-          OPEN
-        </button>
-      </div>
-    );
-  };
   return (
     <div className="flex flex-col min-h-[100vh] min-w-[300px] bg-[#f7fafc]">
       <RouterProvider router={router}></RouterProvider>

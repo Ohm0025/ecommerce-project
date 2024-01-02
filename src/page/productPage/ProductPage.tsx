@@ -8,6 +8,7 @@ import { useProductCategory } from "../../store/categoryAll";
 import { Pagination } from "@mui/material";
 import "./ProductPage.css";
 import EmptyFound from "../../component/emptyFound/EmptyFound";
+import NavPage from "../../component/navPage/NavPage";
 
 type Props = {};
 
@@ -51,7 +52,6 @@ const ProductPage = (props: Props) => {
       ) : (
         <div className="min-h-[100vh] grid grid-cols-1 sm:grid-cols-4 gap-1 mb-4 sm:w-[80%] sm:mx-auto">
           <FilterBox />
-
           {productList.data.length > 0 ? (
             <div className="min-h-[100vh] mt-1 col-span-3">
               {productList.data

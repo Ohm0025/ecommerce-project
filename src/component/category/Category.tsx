@@ -21,7 +21,7 @@ const Category = (props: Props) => {
       <div className="flex overflow-x-auto slider">
         {listCat.map((item, index) => {
           return (
-            <Link to={"/products/cat/" + item}>
+            <Link to={"/products/category/" + item}>
               <div className="h-[170px] w-[150px] border-[0.5px] border-l-0 border-gray-200 hover:bg-[#8CB7F5] grid grid-rows-[2fr_1fr] items-center justify-center relative py-1">
                 <img
                   src={
