@@ -1,8 +1,10 @@
 import React from "react";
 
-type Props = {};
+type Props = {
+  callBack?: () => void;
+};
 
-const ListCartCheckOut = (props: Props) => {
+const ListCartCheckOut = ({ callBack }: Props) => {
   return (
     <div className="px-3 py-4 w-full flex-shrink-[3] min-w-[220px] border bg-white border-gray-200 rounded-md h-fit shadow">
       <div className="border-b-[1px] border-gray-200 flex flex-col gap-[10px] pb-3">
@@ -23,7 +25,9 @@ const ListCartCheckOut = (props: Props) => {
         <span>Total:</span>
         <span>$70.00</span>
       </div>
-      <button className="bg-[#2eb517] text-center py-2 rounded-md text-white mt-4 block w-full">
+      <button
+        onClick={() => callBack && callBack()}
+        className="bg-[#2eb517] text-center py-2 rounded-md text-white mt-4 block w-full">
         Checkout
       </button>
     </div>

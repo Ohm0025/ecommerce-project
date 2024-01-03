@@ -15,7 +15,7 @@ const ProfileMenu = ({ isOpen }: Props) => {
     <div
       className={`profile-${
         isOpen ? "active" : "inactive"
-      } absolute top-[100%] right-0`}>
+      } absolute top-[100%] right-0 z-20`}>
       <ul className={`px-2 py-1`}>
         <li className="text-[white] py-1 text-center">
           {token ? "Hi , client one-one" : "Hi , guest"}

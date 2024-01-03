@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
 type Props = {
@@ -8,11 +7,11 @@ type Props = {
   register?: boolean;
 };
 
-const HeadBarMain = (props: Props) => {
+const HeadBarSm = (props: Props) => {
   const navigate = useNavigate();
   return (
     <div
-      className={"hidden items-center flex-1 order-1 sm:flex"}
+      className={"flex items-center flex-1 order-1 sm:hidden"}
       style={{
         height: props.editHeight,
         paddingLeft: `${props.register ? "30px" : ""}`,
@@ -85,4 +84,4 @@ const HeadBarMain = (props: Props) => {
   );
 };
 
-export default HeadBarMain;
+export default HeadBarSm;

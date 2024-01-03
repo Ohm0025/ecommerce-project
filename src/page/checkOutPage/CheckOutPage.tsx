@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import ListCartItem from "../../component/listCartItem/ListCartItem";
 import ListCartButton from "../../component/listCartButton/ListCartButton";
 import ListCartCheckOut from "../../component/listCartCheckOut/ListCartCheckOut";
 import AlsoLike from "../../component/alsoLike/AlsoLike";
+import ModalConfirmOrder from "../../component/modalConfirmOrder/ModalConfirmOrder";
 
 type Props = {};
 
@@ -26,9 +27,12 @@ const mockProductList = [
 ];
 
 const CheckOutPage = (props: Props) => {
+  const [openModal, setOpenModal] = useState(false);
+  const callBack = () => setOpenModal(true);
+
   return (
-    <div className="min-h-[100vh] sm:w-[80%] mx-auto">
-      <div className="font-semibold text-[20px] col-span-full self-center mb-3">
+    <div className="min-h-[100vh] w-[90%] sm:w-[80%] mx-auto mb-[6.25rem]">
+      <div className="font-semibold text-[20px] col-span-full self-center mb-3 mt-2 sm:mt-0 pl-3 sm:pl-0">
         My Cart <span>{`( ${3} )`}</span>
       </div>
       <div className="flex gap-5 flex-col md:flex-row ">
@@ -40,9 +44,13 @@ const CheckOutPage = (props: Props) => {
           </div>
           <ListCartButton />
         </div>
-        <ListCartCheckOut />
+        <ListCartCheckOut callBack={callBack} />
       </div>
       <AlsoLike />
+      <ModalConfirmOrder
+        isOpen={openModal}
+        handleClose={() => setOpenModal(false)}
+      />
     </div>
   );
 };

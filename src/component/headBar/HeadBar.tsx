@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import HeadBarMain from "./HeadBarMain";
 import HeadBarAlter from "./HeadBarAlter";
+import HeadBarSm from "./HeadBarSm";
 
 type Props = {};
 
@@ -24,7 +25,12 @@ const HeadBar = (props: Props) => {
   //   }
   // }, [location]);
 
-  return <HeadBarMain />;
+  return (
+    <>
+      <HeadBarMain editSize="12rem" />
+      <HeadBarSm editSize="6rem" />
+    </>
+  );
   // <>{isHome ? <HeadBarMain /> : <HeadBarAlter />}</>;
 };
 
