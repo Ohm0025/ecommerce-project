@@ -7,9 +7,10 @@ import Catalogue from "../../component/catalogue/Catalogue";
 type Props = {};
 
 let sampleSlides = [
-  "https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1600716051809-e997e11a5d52?q=80&w=2900&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1612528443702-f6741f70a049?q=80&w=2960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/99235753/original/db9bf5cc3855d76d7af92a4d9c43e8cea5f75a34/design-creative-web-banners-sliders-carousel.jpg",
+  "https://www.latestkurtidesigns.com/wp-content/uploads/2021/07/Online-Shopping-With-Latest-Kurti-Designs-Ethnic-Wear-Store-2.png",
+  "https://www.latestkurtidesigns.com/wp-content/uploads/2020/02/saree-collection.jpg",
+  "https://backend.tops.co.th/media/wysiwyg/10.10_Tops_online_Mega_deals-pae_Hero-en_1.jpg",
 ];
 
 const HomePage = (props: Props) => {

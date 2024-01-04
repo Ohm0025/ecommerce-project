@@ -23,7 +23,11 @@ const Carousel = (props: Props) => {
           transitionDuration: "1000ms",
         }}>
         {props.slides.map((s, i) => {
-          return <img src={s} className="" key={`carousel-img-${i}`} />;
+          return (
+            <div className="min-h-[200px] min-w-[1500px] sm:max-h-[420px] text-center">
+              <img src={s} className="mx-auto" key={`carousel-img-${i}`} />
+            </div>
+          );
         })}
       </div>
       <div className="absolute top-0 h-full w-full justify-between items-center flex text-white px-3 text-3xl">
