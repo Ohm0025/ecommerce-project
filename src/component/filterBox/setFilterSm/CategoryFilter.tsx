@@ -7,8 +7,11 @@ type Props = {
 const CategoryFilter = (props: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className={`border-t-2 py-2 ${isOpen ? "h-fit" : "h-[50px]"}`}>
-      <div className="flex justify-between items-center px-1">
+    <div
+      className={`border-t-2 py-2 ${
+        isOpen ? "h-fit" : "h-[50px]"
+      } align-middle`}>
+      <div className="flex justify-between items-center px-1 mt-1">
         <span>Category</span>
         <button
           className="text-[#8a8d91]"

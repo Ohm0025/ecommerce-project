@@ -4,7 +4,7 @@ type Props = {};
 
 const BtnLayout = (props: Props) => {
   return (
-    <div className="flex col-span-2 justify-center items-center border border-[#e1e1e1]-1 rounded-[7px] relative sm:h-fit">
+    <div className="flex sm:hidden col-span-2 justify-center items-center border border-[#e1e1e1]-1 rounded-[7px] relative sm:h-fit">
       <button className="flex-1 flex justify-center items-center h-full w-full border-r-[1px] sm:py-2">
         <svg
           width="20"

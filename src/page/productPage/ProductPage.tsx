@@ -50,10 +50,10 @@ const ProductPage = (props: Props) => {
           <Spinner color="black" />
         </div>
       ) : (
-        <div className="min-h-[100vh] grid grid-cols-1 sm:grid-cols-4 gap-1 mb-4 sm:w-[80%] sm:mx-auto">
-          <FilterBox />
+        <div className="flex flex-col min-h-[100vh] sm:grid sm:grid-cols-4 gap-1 mb-4 sm:w-[80%] sm:mx-auto">
+          <FilterBox isProductPage={true} />
           {productList.data.length > 0 ? (
-            <div className="min-h-[100vh] mt-1 col-span-3">
+            <div className="min-h-[100vh] mt-1 col-span-4 sm:col-span-3">
               {productList.data
                 .slice((currentPage - 1) * 10, (currentPage - 1) * 10 + 10)
                 .map((item, index) => {
@@ -82,7 +82,7 @@ const ProductPage = (props: Props) => {
           <Pagination
             page={currentPage}
             count={Math.ceil(productList.data.length / 10)}
-            className="pagination-product-page sm:col-span-full"
+            className="pagination-product-page col-span-8"
             sx={{ margin: "10px auto" }}
             onChange={(event: React.ChangeEvent<unknown>, value: number) =>
               setCurrentPage(value)

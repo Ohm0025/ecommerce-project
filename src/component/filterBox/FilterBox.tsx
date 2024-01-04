@@ -4,11 +4,14 @@ import DropDownFilter from "./DropDownFilter";
 import FilterSM from "./FilterSM";
 import BtnLayout from "./BtnLayout";
 
-type Props = {};
+type Props = {
+  isProductPage?: boolean;
+};
 
-const FilterBox = (props: Props) => {
+const FilterBox = ({ isProductPage }: Props) => {
   return (
-    <div className="grid grid-cols-8 gap-1 bg-white p-2 mt-1 shadow sticky top-[147px] sm:static left-0 z-10 sm:bg-transparent sm:flex sm:flex-col sm:gap-2">
+    <div
+      className={`col-span-8 grid grid-cols-8 gap-1 bg-white shadow sticky top-[102px] sm:static z-10 sm:bg-transparent sm:flex sm:flex-col sm:col-span-1 sm:gap-2`}>
       <DropDownSort />
       <DropDownFilter />
       <BtnLayout />

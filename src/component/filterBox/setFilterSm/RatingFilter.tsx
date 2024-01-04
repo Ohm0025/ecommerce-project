@@ -8,7 +8,7 @@ const RatingFilter = (props: Props) => {
   const [isCheckBox, setIsCheckBox] = useState(false);
   return (
     <div className={`border-t-2 py-2 ${isCheckBox ? "h-fit" : "h-[50px]"}`}>
-      <div className="flex justify-between items-center px-1">
+      <div className="flex justify-between items-center px-1 mt-1">
         <span>Ratings</span>
         <button
           className="text-[#8a8d91]"

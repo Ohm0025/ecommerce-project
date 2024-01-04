@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import UserDropDown from "../userDropdown/UserDropDown";
 import Dropdown from "react-dropdown";
 import "./SearchBar.css";
+import { Container } from "@mui/material";
 
 type Props = {};
 
@@ -36,16 +37,16 @@ const SearchBar = (props: Props) => {
   }, [suggestBox]);
 
   return (
-    <div className="col-span-full gap-[1px] order-last sm:order-1 sm:col-span-6 gap-y-1 grid grid-cols-1 sm:grid-cols-2 items-center sm:border-2 sm:rounded-[10px] sm:border-[#3d8bfd] sm:bg-[#3d8bfd] sm:min-w-[80%] sm:m-auto">
+    <div className="flex h-[40px] gap-[1px] order-last sm:order-1 gap-y-1 items-center border-2 rounded-[10px] border-[#3d8bfd] bg-[#3d8bfd] w-[100%] mx-auto sm:w-[50%]">
       <input
         {...fieldKeyword}
         type="text"
         placeholder="Search"
-        className="p-[8px] h-full border outline-none text-[17px] flex-1 w-full rounded-[8px] sm:rounded-l-[8px] sm:rounded-r-none"
+        className="p-[8px] h-full flex flex-glow-1 border outline-none text-[13px] w-full rounded-[8px] rounded-l-[8px] rounded-r-none"
       />
-      <div className="grid grid-cols-2 w-full">
+      <div className="flex h-[40px] w-full">
         <Dropdown
-          className="custom-dropdown-root text-[14px]"
+          className="custom-dropdown-root text-[10px]"
           controlClassName="custom-dropdown-control"
           arrowClassName="custom-dropdown-arrow"
           arrowOpen={<i className="fa-solid fa-chevron-up"></i>}
@@ -55,7 +56,7 @@ const SearchBar = (props: Props) => {
           onChange={(e) => setCatList(e.value)}
         />
         <button
-          className="bg-[#3d8bfd] text-[white] px-4 py-2 col-span-1 sm:rounded-[10px]"
+          className="bg-[#3d8bfd] text-[10px] text-[white] px-4 col-span-1 rounded-[10px]"
           onClick={() => listProducts()}>
           Search
         </button>
