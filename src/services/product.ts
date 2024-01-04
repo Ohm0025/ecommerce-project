@@ -11,4 +11,13 @@ const getAllProduct = async (): Promise<any> => {
   }
 };
 
-export { getAllProduct };
+const getProductByCat = async (catName: string | undefined): Promise<any> => {
+  try {
+    const res = await axios.get(`${API_URL}/products/category/${catName}`);
+    return handleResponse.success(res);
+  } catch (err: any) {
+    return handleResponse.error(err);
+  }
+};
+
+export { getAllProduct, getProductByCat };

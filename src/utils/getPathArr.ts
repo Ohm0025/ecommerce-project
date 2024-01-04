@@ -9,7 +9,7 @@ const getPathArr = (
   const allPath = ["Home", "Products", "Checkout"];
   const indexCurrent = allPath.findIndex((item) => item === currentPath);
   const finalArr = allPath.slice(0, indexCurrent + 1);
-  console.log(finalArr);
+  //console.log(finalArr);
   if (finalArr.length > 1) {
     if (brand) {
       finalArr.splice(2, 0, brand);
@@ -20,7 +20,7 @@ const getPathArr = (
     if (query) {
       finalArr.splice(2, 0, query);
     }
-    console.log(finalArr);
+    //console.log(finalArr);
   }
   return finalArr;
 };

@@ -23,6 +23,7 @@ const BrandFilter = (props: Props) => {
           {props.listBrands.map((item, index) => {
             return (
               <FormControlLabel
+                key={`list-brand-${index}`}
                 control={<Checkbox />}
                 label={item}></FormControlLabel>
             );

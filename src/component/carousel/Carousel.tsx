@@ -24,9 +24,12 @@ const Carousel = (props: Props) => {
         }}>
         {props.slides.map((s, i) => {
           return (
-            <div className="min-h-[200px] min-w-[1500px] sm:max-h-[420px] text-center">
-              <img src={s} className="mx-auto" key={`carousel-img-${i}`} />
-            </div>
+            <React.Fragment key={`carousel-item-${i}`}>
+              <div className="hidden xl:block min-w-[1500px]">
+                <img src={s} className="m-auto" />
+              </div>
+              <img src={s} className="xl:hidden" />
+            </React.Fragment>
           );
         })}
       </div>

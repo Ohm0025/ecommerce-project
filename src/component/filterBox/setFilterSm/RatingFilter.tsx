@@ -22,6 +22,7 @@ const RatingFilter = (props: Props) => {
           {[5, 4, 3, 2, 1].map((item, index) => {
             return (
               <FormControlLabel
+                key={`list-rating-${index}`}
                 control={<Checkbox />}
                 label={<StarRating rate={item} />}></FormControlLabel>
             );

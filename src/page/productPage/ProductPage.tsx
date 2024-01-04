@@ -9,43 +9,19 @@ import { Pagination } from "@mui/material";
 import "./ProductPage.css";
 import EmptyFound from "../../component/emptyFound/EmptyFound";
 import NavPage from "../../component/navPage/NavPage";
+import useProductPage from "./ProductPage.hook";
 
 type Props = {};
 
 const ProductPage = (props: Props) => {
-  const { productList, setProductList, fetchProductList } =
-    useProductListStore();
+  const { productList } = useProductPage();
+
   const { currentCat, setCurrentCat } = useProductCategory();
   const [currentPage, setCurrentPage] = useState(1);
 
-  const [queryStr, setQueryStr] = useSearchParams();
-  let title = queryStr.get("title") || "";
-  let type = queryStr.get("type") || "";
-
-  const { cat } = useParams();
-
-  useEffect(() => {
-    setProductList({ data: [], loading: true, error: null });
-    if (title && title.trim() !== "") {
-      const filterList = fetchProductList.data.filter((item) =>
-        item.title.toLowerCase().includes(title.toLowerCase())
-      );
-      setProductList({ data: filterList, loading: false, error: null });
-    } else {
-      setProductList({
-        data: [...fetchProductList.data],
-        loading: false,
-        error: null,
-      });
-    }
-    // if(type){
-    //   const filterList =
-    // }
-  }, [fetchProductList, title]);
-
   return (
     <>
-      {productList.loading || fetchProductList.loading ? (
+      {productList.loading ? (
         <div className="flex flex-col items-center min-h-[100vh]">
           <Spinner color="black" />
         </div>

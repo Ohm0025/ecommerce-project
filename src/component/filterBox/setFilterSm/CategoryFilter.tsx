@@ -22,7 +22,11 @@ const CategoryFilter = (props: Props) => {
       <div className={`dropdown-${isOpen ? "active" : "inactive"}`}>
         <ul className={`px-2 py-1 `}>
           {props.listCat.map((item, index) => {
-            return <li className="text-[#8a8d91]">{item}</li>;
+            return (
+              <li className="text-[#8a8d91]" key={`list-cat-item-${index}`}>
+                {item}
+              </li>
+            );
           })}
         </ul>
       </div>

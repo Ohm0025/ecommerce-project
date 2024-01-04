@@ -15,9 +15,9 @@ const NavPage = (props: Props) => {
     const initPath = location.pathname.split("/");
 
     if (initPath.includes("products")) {
-      console.log(formatPath("products"));
+      //console.log(formatPath("products"));
       if (params) {
-        console.log(params);
+        //console.log(params);
       }
       setArrPath(() => getPathArr(formatPath("products")));
     }
@@ -30,12 +30,12 @@ const NavPage = (props: Props) => {
           {arrPath.map((item, index) => {
             return (
               item && (
-                <>
+                <React.Fragment key={`path-item-${index}`}>
                   <li className="cursor-pointer">{formatPath(item)}</li>
                   {index !== arrPath.length - 1 && (
                     <span className="mx-[10px]">{">"}</span>
                   )}
-                </>
+                </React.Fragment>
               )
             );
           })}
