@@ -42,7 +42,7 @@ const useProductPage = () => {
 
   useEffect(() => {
     callInitData();
-  }, []);
+  }, [cat]);
   return { productList };
 };
 

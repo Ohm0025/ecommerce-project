@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, useSearchParams } from "react-router-dom";
 import { formatPath } from "../../utils/formatText";
 import { getPathArr } from "../../utils/getPathArr";
 
@@ -8,18 +8,30 @@ type Props = {};
 const NavPage = (props: Props) => {
   const location = useLocation();
   const params = useParams();
+
   const [isHome, setIsHome] = useState(false);
   const [arrPath, setArrPath] = useState<string[]>([]);
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const search = urlParams.get("q");
 
   useEffect(() => {
     const initPath = location.pathname.split("/");
 
     if (initPath.includes("products")) {
       //console.log(formatPath("products"));
-      if (params) {
-        //console.log(params);
+      setArrPath((prev) => ["Home", "Products"]);
+      if (params.cat) {
+        setArrPath((prev) => {
+          return [...prev, params.cat];
+        });
       }
-      setArrPath(() => getPathArr(formatPath("products")));
+      if (search) {
+        setArrPath((prev) => {
+          return [...prev, search];
+        });
+      }
+      //setArrPath(() => getPathArr(formatPath("products")));
     }
   }, [location]);
 

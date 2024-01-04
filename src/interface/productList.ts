@@ -12,6 +12,7 @@ export interface IProductDetail {
   image: string;
   rating?: number;
   stock: number;
+  images: string[];
 }
 
 export interface IProductListItem {

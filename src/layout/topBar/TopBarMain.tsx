@@ -16,7 +16,7 @@ const TopBarMain = ({ isHome }: Props) => {
       {isHome ? (
         <SearchBar />
       ) : (
-        <div className="col-span-full gap-[1px] order-last sm:order-1 sm:col-span-6 gap-y-1 grid grid-cols-1 sm:grid-cols-2 sm:min-w-[80%]"></div>
+        <div className="flex h-[40px] gap-[1px] order-last sm:order-1 gap-y-1 items-center rounded-[10px] w-[100%] mx-auto sm:w-[50%]"></div>
       )}
       <NavBar />
       <NavPage />

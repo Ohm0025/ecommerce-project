@@ -10,6 +10,8 @@ const initDetail: IProductDetail = {
   category: "",
   description: "",
   image: "",
+  images: [],
+  stock: 0,
 };
 
 export const useDetailPage = () => {

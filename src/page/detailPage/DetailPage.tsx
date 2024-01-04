@@ -12,55 +12,46 @@ const DetailPage = (props: Props) => {
   const { productDetail, loading, changeLoading } = useDetailPage();
 
   return (
-    <>
+    <div>
       {loading ? (
         <Spinner color="black" />
       ) : (
-        <div className="min-h-[100vh] bg-gray-200">
-          <div className="w-full h-[60vh] m-[auto] bg-white border-b-2">
-            {/* <div className="p-4 flex flex-col items-center justify-center">
-              <img
-                src={productDetail.image}
-                alt=""
-                className="h-[80%] aspect-auto"
-              />
+        <div className="min-h-[100vh]">
+          <div className="flex flex-col sm:grid sm:grid-cols-2 sm:w-[80%] sm:mx-auto bg-gray-200">
+            <div className="w-full h-[60vh] m-[auto] bg-white border-b-2">
+              <ProductSlide slides={productDetail.images} />
             </div>
-            <div className="col-span-2 p-4 flex flex-col">
-              <span>{productDetail.title}</span>
-              <div className="grid grid-cols-2">
-                <StarRating rate={productDetail.rating?.rate} />
-                <span>{productDetail.rating?.count}</span>
-              </div>
-              <span>{"$ " + productDetail.price}</span>
-              <ProductCounter btnWidth="230px" btnSize="40px" />
-              <OrderButton />
-            </div> */}
-            <ProductSlide
-              slides={[
-                productDetail.image,
-                productDetail.image,
-                productDetail.image,
-              ]}
-            />
-          </div>
 
-          <div className="w-full bg-white px-8 py-2">
-            <div className="flex items-center py-1">
-              <StarRating rate={productDetail.rating} />
+            <div className="flex flex-col gap-2">
+              <div className="w-full bg-white px-8 py-2 sm:grid sm:grid-rows-4 sm:h-[300px] sm:items-center">
+                <div className="flex items-center py-1 sm:order-2">
+                  <StarRating rate={productDetail.rating} />
+                </div>
+                <div className="py-1 sm:order-1 sm:text-[2rem]">
+                  {productDetail.title}
+                </div>
+                <div className="py-1 sm:text-[1.5rem] sm:order-3">
+                  {"$ " + productDetail.price}
+                </div>
+                <div className="sm:order-4">
+                  <OrderButton
+                    styleEdit={{
+                      minWidth: "50%",
+                      maxWidth: "400px",
+                      margin: "auto",
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="w-full bg-white px-8 py-2 mb-2">
+                <p>{productDetail.description}</p>
+                <span className="text-[#1c77fd] text-sm">Read more</span>
+              </div>
             </div>
-            <div className="py-1">{productDetail.title}</div>
-            <div className="py-1">{"$ " + productDetail.price}</div>
-            <OrderButton
-              styleEdit={{ minWidth: "50%", maxWidth: "400px", margin: "auto" }}
-            />
-          </div>
-          <div className="w-full bg-white px-8 py-2 mb-2">
-            <p>{productDetail.description}</p>
-            <span className="text-[#1c77fd] text-sm">Read more</span>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
