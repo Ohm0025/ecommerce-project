@@ -1,5 +1,7 @@
 import React from "react";
 import ProductCounter from "../productCounter/ProductCounter";
+import { InputProductType } from "../../utils/clickCartSmall";
+import { discountCal } from "../../utils/priceCal";
 
 type ListItemType = {
   title: string;
@@ -7,7 +9,7 @@ type ListItemType = {
 };
 
 type Props = {
-  item: ListItemType;
+  item: InputProductType;
 };
 
 const ListCartItem = ({ item }: Props) => {
@@ -16,10 +18,10 @@ const ListCartItem = ({ item }: Props) => {
       className={`grid grid-cols-1 sm:grid-cols-3 border-b-[1px] border-gray-200 py-3`}>
       <div className="flex gap-3 col-span-2 relative">
         <div className="h-[100px] border border-gray-200 rounded-md">
-          <img src={item.img} className="h-full w-auto" alt="" />
+          <img src={item.productImg} className="h-full w-auto" alt="" />
         </div>
         <div className="flex flex-col gap-2">
-          <div className="text">Product title</div>
+          <div className="text">{item.productTitle}</div>
           <div className="text-gray-400 flex flex-col">
             <span>brand:</span>
             <span>rating:</span>
@@ -36,8 +38,12 @@ const ListCartItem = ({ item }: Props) => {
         </div>
       </div>
       <div className="flex flex-row-reverse items-center justify-between mt-3 sm:mt-0 sm:flex-col sm:items-end sm:justify-center sm:pr-3 gap-3">
-        <div className="text">$45.90</div>
-        <ProductCounter />
+        <div className="text">
+          $
+          {discountCal(item.productPrice, item.productDiscount) *
+            item.productQTY}
+        </div>
+        <ProductCounter productSelect={item} />
       </div>
     </div>
   );

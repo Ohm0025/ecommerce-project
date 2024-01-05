@@ -1,25 +1,28 @@
 import React, { useState } from "react";
+import { useUserCart } from "../../store/currentCart";
+import { InputProductType } from "../../utils/clickCartSmall";
 
 type Props = {
   btnWidth?: string;
   btnSize?: string;
+  productSelect: InputProductType;
 };
 
 const ProductCounter = (props: Props) => {
-  const [productCount, setProductCount] = useState(1);
+  const { addUserCart, userCart } = useUserCart();
   return (
     <div className="flex rounded-[0.3rem] overflow-hidden h-[3rem] sm:h-[2rem]">
       <button
         className="bg-[#3d8bfd] text-white flex justify-center items-center text-sm w-[3rem] sm:w-[2rem]"
-        onClick={() => setProductCount((prev) => prev + 1)}>
+        onClick={() => addUserCart(props.productSelect)}>
         +
       </button>
       <span className="flex items-center justify-center border border-t-1 border-b-1 sm:text-sm w-[3rem] sm:w-[2rem]">
-        {productCount}
+        {props.productSelect?.productQTY}
       </span>
       <button
         className="bg-[#3d8bfd] text-white flex justify-center items-center text-sm w-[3rem] sm:w-[2rem]"
-        onClick={() => setProductCount((prev) => (prev !== 1 ? prev - 1 : 1))}>
+        onClick={() => addUserCart(props.productSelect, -1)}>
         -
       </button>
     </div>

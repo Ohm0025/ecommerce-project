@@ -4,6 +4,8 @@ import ListCartButton from "../../component/listCartButton/ListCartButton";
 import ListCartCheckOut from "../../component/listCartCheckOut/ListCartCheckOut";
 import AlsoLike from "../../component/alsoLike/AlsoLike";
 import ModalConfirmOrder from "../../component/modalConfirmOrder/ModalConfirmOrder";
+import { useUserCart } from "../../store/currentCart";
+import EmptyFound from "../../component/emptyFound/EmptyFound";
 
 type Props = {};
 
@@ -29,6 +31,7 @@ const mockProductList = [
 const CheckOutPage = (props: Props) => {
   const [openModal, setOpenModal] = useState(false);
   const callBack = () => setOpenModal(true);
+  const { userCart } = useUserCart();
 
   return (
     <div className="min-h-[100vh] w-[90%] sm:w-[80%] mx-auto mb-[6.25rem]">
@@ -36,14 +39,24 @@ const CheckOutPage = (props: Props) => {
         My Cart <span>{`( ${3} )`}</span>
       </div>
       <div className="flex gap-5 flex-col md:flex-row ">
-        <div className="flex flex-col border shadow bg-white border-gray-200 rounded-md overflow-x-hidden px-4 max-h-[400px] w-full">
-          <div className="overflow-y-auto">
-            {mockProductList.map((item, index) => {
-              return <ListCartItem item={item} />;
-            })}
+        {userCart.length > 0 ? (
+          <div className="flex flex-col border shadow bg-white border-gray-200 rounded-md overflow-x-hidden px-4 max-h-[400px] w-full">
+            <div className="overflow-y-auto">
+              {userCart.map((item, index) => {
+                return (
+                  <ListCartItem item={item} key={`usercart-item-${index}`} />
+                );
+              })}
+            </div>
+            <ListCartButton />
           </div>
-          <ListCartButton />
-        </div>
+        ) : (
+          <EmptyFound
+            text={"no item in cart"}
+            setHeight="100px"
+            editClass="flex flex-col border shadow bg-white border-gray-200 rounded-md overflow-x-hidden px-4 max-h-[400px] w-full items-center justify-center"
+          />
+        )}
         <ListCartCheckOut callBack={callBack} />
       </div>
       <AlsoLike />

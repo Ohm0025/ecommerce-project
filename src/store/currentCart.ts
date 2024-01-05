@@ -44,4 +44,33 @@ export const useUserCart = create<UseUserCartType>((set) => ({
       };
     }),
   clearUserCart: () => set({ userCart: [] }),
+  raiseQty: (value: number = 1, selectId: number) =>
+    set((prev) => {
+      return {
+        userCart: [
+          ...prev.userCart.map((item) => {
+            if (item.productId === selectId) {
+              return { ...item, productQTY: item.productQTY + value };
+            }
+            return item;
+          }),
+        ],
+      };
+    }),
+  dropQty: (value: number = 1, selectId: number) =>
+    set((prev) => {
+      return {
+        userCart: [
+          ...prev.userCart.map((item) => {
+            if (item.productId === selectId) {
+              if (item.productQTY - value >= 0) {
+                return { ...item, productQTY: item.productQTY - value };
+              }
+              return item;
+            }
+            return item;
+          }),
+        ],
+      };
+    }),
 }));
