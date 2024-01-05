@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { searchProduct } from "../../services/searchProduct";
 import { getAllProduct } from "../../services/product";
+import { useLinkRef } from "../../store/linkRef";
+import { productCategory } from "../../services/ProductCategory";
+import { useProductCategory } from "../../store/categoryAll";
+import useProductPage from "../../page/productPage/ProductPage.hook";
 
 const useSearchBar = () => {
   const {
@@ -26,15 +30,22 @@ const useSearchBar = () => {
     fetchProductList,
   } = useProductListStore();
 
+  const { callInitData } = useProductPage();
+  const { query, category } = useLinkRef();
+  const { setProductCategory, productCategories } = useProductCategory();
+
   const navigate = useNavigate();
   const keyword = watch("keyword");
 
   const listProducts = (title?: string) => {
-    if (title || keyword) {
-      navigate("/products?title=" + (title || keyword));
+    if (query) {
+      navigate("/products/search/" + query);
+    } else if (category && category !== "All category") {
+      navigate("/products/category/" + category);
     } else {
       navigate("/products");
     }
+    callInitData();
   };
 
   useEffect(() => {
@@ -75,8 +86,18 @@ const useSearchBar = () => {
     }
   };
 
+  const callCat = async () => {
+    if (productCategories.data.length === 0) {
+      const res = await productCategory.getAllCategory();
+      if (res.status === 200) {
+        res.data &&
+          setProductCategory({ data: res.data, loading: false, error: null });
+      }
+    }
+  };
+
   useEffect(() => {
-    callData();
+    callCat();
   }, []);
 
   return {

@@ -19,7 +19,6 @@ function App() {
     {
       path: "/",
       element: <LayoutHome />,
-
       children: [
         {
           path: "",
@@ -30,7 +29,7 @@ function App() {
           element: <ProductPage />,
         },
         {
-          path: "products/search/:q/:brand",
+          path: "products/search/:q",
           element: <ProductPage />,
         },
         {
