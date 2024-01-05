@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useUserCart } from "../../../../store/currentCart";
 import { InputProductType } from "../../../../utils/clickCartSmall";
 import CartItem from "./cartItem/CartItem";
+import { useEffect } from "react";
 
 type Props = {
   isOpen: boolean;
@@ -10,6 +11,17 @@ type Props = {
 const CartList = ({ isOpen }: Props) => {
   const { userCart, clearUserCart } = useUserCart();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // let oldCart = localStorage.getItem("user-cart");
+    // let oldCartConvert = JSON.parse(oldCart || "[]");
+    let newCart = [...userCart];
+    console.log(newCart);
+    localStorage.setItem("user-cart", JSON.stringify(newCart));
+
+    console.log(localStorage.getItem("user-cart"));
+    console.log("save item");
+  }, [userCart]);
 
   return (
     <>

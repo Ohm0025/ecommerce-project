@@ -5,6 +5,8 @@ type InputProductType = {
   productQTY: number;
   productDiscount: number;
   productImg: string;
+  productBrand?: string;
+  productRate: number;
 };
 
 const handleOnClickCartSmall = ({
@@ -26,14 +28,14 @@ const handleOnClickCartSmall = ({
     productImg,
   };
 
-  if (oldCart) {
-    const convertOldCart = JSON.parse(oldCart);
-    let addCart = [...convertOldCart, newCartItem];
-    localStorage.setItem("user-cart", JSON.stringify(addCart));
-  } else {
-    let newEmptyCart = [newCartItem];
-    localStorage.setItem("user-cart", JSON.stringify(newEmptyCart));
-  }
+  // if (oldCart) {
+  //   const convertOldCart = JSON.parse(oldCart);
+  //   let addCart = [...convertOldCart, newCartItem];
+  //   localStorage.setItem("user-cart", JSON.stringify(addCart));
+  // } else {
+  //   let newEmptyCart = [newCartItem];
+  //   localStorage.setItem("user-cart", JSON.stringify(newEmptyCart));
+  // }
 };
 
 export { handleOnClickCartSmall };

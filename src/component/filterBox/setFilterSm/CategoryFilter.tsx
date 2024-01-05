@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useProductCategory } from "../../../store/categoryAll";
 import { productCategory } from "../../../services/ProductCategory";
 import { Link } from "react-router-dom";
+import { useLinkRef } from "../../../store/linkRef";
 
 type Props = {
   listCat?: string[];
@@ -9,16 +10,24 @@ type Props = {
 
 const CategoryFilter = (props: Props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { productCategories } = useProductCategory();
-
-  const [listCat, setListCat] = useState<string[]>([]);
+  const { productCategories, setProductCategory } = useProductCategory();
+  const { setCategory } = useLinkRef();
 
   const callData = async () => {
     if (productCategories.data.length === 0) {
       const response = await productCategory.getAllCategory();
-      response.data && setListCat([...response.data]);
+      response.data &&
+        setProductCategory({
+          data: [...response.data],
+          loading: false,
+          error: null,
+        });
     } else {
-      setListCat([...productCategories.data]);
+      setProductCategory({
+        data: [...productCategories.data],
+        loading: false,
+        error: null,
+      });
     }
   };
 
@@ -41,13 +50,19 @@ const CategoryFilter = (props: Props) => {
       </div>
       <div className={`dropdown-${isOpen ? "active" : "inactive"}`}>
         <ul className={`px-2 py-1`}>
-          {listCat.map((item, index) => {
+          {productCategories.data.map((item, index) => {
             return (
-              <Link
-                to={"/products/category/" + item}
+              // <Link
+              //   to={"/products/category/" + item}
+              //   key={`list-cat-item-${index}`}>
+              //   <li className="text-[#8a8d91] cursor-pointer">{item}</li>
+              // </Link>
+              <li
+                onClick={() => setCategory(item)}
+                className="text-[#8a8d91] cursor-pointer"
                 key={`list-cat-item-${index}`}>
-                <li className="text-[#8a8d91] cursor-pointer">{item}</li>
-              </Link>
+                {item}
+              </li>
             );
           })}
         </ul>

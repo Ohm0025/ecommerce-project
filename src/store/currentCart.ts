@@ -12,6 +12,8 @@ type UseUserCartType = {
   addUserCart: (value: InputProductType, addNum?: number) => void;
   removeUserCart: (productId: number) => void;
   clearUserCart: () => void;
+  raiseQty: (value: number, selectId: number) => void;
+  dropQty: (value: number, selectId: number) => void;
 };
 
 export const useUserCart = create<UseUserCartType>((set) => ({

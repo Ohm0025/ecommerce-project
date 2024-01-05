@@ -89,6 +89,8 @@ const ProductCard = (props: Props) => {
               productDiscount: props.productDetail.discountPercentage,
               productPrice: props.productDetail.price,
               productImg: props.productDetail.images[1],
+              productBrand: props.productDetail.brand,
+              productRate: props.productDetail.rating,
             });
             addUserCart({
               productId: props.productDetail.id,
@@ -97,6 +99,8 @@ const ProductCard = (props: Props) => {
               productDiscount: props.productDetail.discountPercentage,
               productPrice: props.productDetail.price,
               productImg: props.productDetail.images[1],
+              productBrand: props.productDetail.brand,
+              productRate: props.productDetail.rating,
             });
           }}
           className="p-2 border rounded-md shadow-sm text-center"

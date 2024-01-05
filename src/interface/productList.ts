@@ -26,4 +26,5 @@ export interface IProductListItem {
   thumbnail: string;
   stock: number;
   discountPercentage: number;
+  brand?: string;
 }

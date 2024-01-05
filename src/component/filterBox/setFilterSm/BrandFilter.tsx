@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
+import { useProductListStore } from "../../../store/productList";
+import { useLinkRef } from "../../../store/linkRef";
 
 type Props = {
   listBrands: string[];
@@ -7,6 +9,13 @@ type Props = {
 
 const BrandFilter = (props: Props) => {
   const [isCheckBox, setIsCheckBox] = useState(false);
+  const { productList } = useProductListStore();
+  const { setBrand, brand } = useLinkRef();
+
+  const listBand = productList.data.map((item) => {
+    return item.brand;
+  });
+
   return (
     <div className={`border-t-2 py-2 ${isCheckBox ? "h-fit" : "h-[50px]"}`}>
       <div className="flex justify-between items-center px-1 mt-1">
@@ -20,11 +29,23 @@ const BrandFilter = (props: Props) => {
       </div>
       <div className={`dropdown-${isCheckBox ? "active" : "inactive"}`}>
         <FormGroup className={`px-1 py-1 `}>
-          {props.listBrands.map((item, index) => {
+          {listBand.map((item, index) => {
             return (
               <FormControlLabel
                 key={`list-brand-${index}`}
-                control={<Checkbox />}
+                control={
+                  <Checkbox
+                    onChange={(e) => {
+                      if (brand === e.target.value) {
+                        setBrand("");
+                      } else {
+                        setBrand(e.target.value);
+                      }
+                    }}
+                    value={item}
+                    checked={brand === item}
+                  />
+                }
                 label={item}></FormControlLabel>
             );
           })}

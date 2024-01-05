@@ -10,6 +10,7 @@ import "./ProductPage.css";
 import EmptyFound from "../../component/emptyFound/EmptyFound";
 import NavPage from "../../component/navPage/NavPage";
 import useProductPage from "./ProductPage.hook";
+import { useLinkRef } from "../../store/linkRef";
 
 type Props = {};
 
@@ -18,7 +19,7 @@ const ProductPage = (props: Props) => {
 
   const { currentCat, setCurrentCat } = useProductCategory();
   const [currentPage, setCurrentPage] = useState(1);
-
+  const { brand } = useLinkRef();
   return (
     <>
       {productList.loading ? (
@@ -34,6 +35,18 @@ const ProductPage = (props: Props) => {
                 .slice((currentPage - 1) * 10, (currentPage - 1) * 10 + 10)
                 .map((item, index) => {
                   if (currentCat.length === 0 || !currentCat) {
+                    if (brand) {
+                      if (brand === item.brand) {
+                        return (
+                          <ProductCard
+                            productDetail={item}
+                            key={`product-card-${index}`}
+                          />
+                        );
+                      } else {
+                        return;
+                      }
+                    }
                     return (
                       <ProductCard
                         productDetail={item}

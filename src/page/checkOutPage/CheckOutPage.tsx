@@ -9,25 +9,6 @@ import EmptyFound from "../../component/emptyFound/EmptyFound";
 
 type Props = {};
 
-const mockProductList = [
-  {
-    title: "product",
-    img: "https://www.family.abbott/my-en/get-samples/_jcr_content/root/container_copy/columncontrol_copy/tab_item_no_0/image.coreimg.85.512.png/1687175603720/product-detail-component-sim-s3.png",
-  },
-  {
-    title: "product",
-    img: "https://www.family.abbott/my-en/get-samples/_jcr_content/root/container_copy/columncontrol_copy/tab_item_no_0/image.coreimg.85.512.png/1687175603720/product-detail-component-sim-s3.png",
-  },
-  {
-    title: "product",
-    img: "https://www.family.abbott/my-en/get-samples/_jcr_content/root/container_copy/columncontrol_copy/tab_item_no_0/image.coreimg.85.512.png/1687175603720/product-detail-component-sim-s3.png",
-  },
-  {
-    title: "product",
-    img: "https://www.family.abbott/my-en/get-samples/_jcr_content/root/container_copy/columncontrol_copy/tab_item_no_0/image.coreimg.85.512.png/1687175603720/product-detail-component-sim-s3.png",
-  },
-];
-
 const CheckOutPage = (props: Props) => {
   const [openModal, setOpenModal] = useState(false);
   const callBack = () => setOpenModal(true);

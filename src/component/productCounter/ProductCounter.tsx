@@ -9,12 +9,12 @@ type Props = {
 };
 
 const ProductCounter = (props: Props) => {
-  const { addUserCart, userCart } = useUserCart();
+  const { addUserCart, userCart, raiseQty, dropQty } = useUserCart();
   return (
     <div className="flex rounded-[0.3rem] overflow-hidden h-[3rem] sm:h-[2rem]">
       <button
         className="bg-[#3d8bfd] text-white flex justify-center items-center text-sm w-[3rem] sm:w-[2rem]"
-        onClick={() => addUserCart(props.productSelect)}>
+        onClick={() => raiseQty(1, props.productSelect.productId)}>
         +
       </button>
       <span className="flex items-center justify-center border border-t-1 border-b-1 sm:text-sm w-[3rem] sm:w-[2rem]">
@@ -22,7 +22,7 @@ const ProductCounter = (props: Props) => {
       </span>
       <button
         className="bg-[#3d8bfd] text-white flex justify-center items-center text-sm w-[3rem] sm:w-[2rem]"
-        onClick={() => addUserCart(props.productSelect, -1)}>
+        onClick={() => dropQty(1, props.productSelect.productId)}>
         -
       </button>
     </div>
