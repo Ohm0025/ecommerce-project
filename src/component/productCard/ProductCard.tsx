@@ -5,6 +5,8 @@ import StarRating from "../starRating/StarRating";
 import { useNavigate } from "react-router-dom";
 import { discountCal } from "../../utils/priceCal";
 import { addItemToCart } from "../../utils/addItemToCart";
+import { handleOnClickCartSmall } from "../../utils/clickCartSmall";
+import { useUserCart } from "../../store/currentCart";
 
 type Props = {
   productDetail: IProductListItem;
@@ -12,6 +14,7 @@ type Props = {
 
 const ProductCard = (props: Props) => {
   const navivate = useNavigate();
+  const { addUserCart } = useUserCart();
 
   useEffect(() => {
     const addBtn = document.querySelectorAll("[data-addToCart]");
@@ -68,6 +71,24 @@ const ProductCard = (props: Props) => {
       </div>
       <div className="absolute top-3 right-3">
         <button
+          onClick={() => {
+            handleOnClickCartSmall({
+              productId: props.productDetail.id,
+              productTitle: props.productDetail.title,
+              productQTY: 1,
+              productDiscount: props.productDetail.discountPercentage,
+              productPrice: props.productDetail.price,
+              productImg: props.productDetail.images[1],
+            });
+            addUserCart({
+              productId: props.productDetail.id,
+              productTitle: props.productDetail.title,
+              productQTY: 1,
+              productDiscount: props.productDetail.discountPercentage,
+              productPrice: props.productDetail.price,
+              productImg: props.productDetail.images[1],
+            });
+          }}
           className="p-2 border rounded-md shadow-sm text-center"
           data-addtocart>
           <i className="fa-solid fa-cart-plus text-[20px] text-[#0D6EFD]"></i>

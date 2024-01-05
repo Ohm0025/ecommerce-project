@@ -25,7 +25,11 @@ const LayoutHome = (props: Props) => {
         setIsHome(true);
       }
     } else {
-      setIsHome(true);
+      if (locationArr.includes("checkout")) {
+        setIsHome(false);
+      } else {
+        setIsHome(true);
+      }
     }
   }, [location]);
   return (

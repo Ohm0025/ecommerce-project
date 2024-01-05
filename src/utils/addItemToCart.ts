@@ -1,9 +1,12 @@
+import { useEffect, useState } from "react";
+import { InputProductType } from "./clickCartSmall";
+import { useUserCart } from "../store/currentCart";
+
 const speed = 500,
   curveDelay = 300,
   position = "fixed";
 
-export const addItemToCart = (e: any, cart: HTMLElement | null) => {
-  console.dir(cart);
+export const addItemToCart = (e: any, cart: HTMLElement, qty: number = 1) => {
   let btnY =
     position === "fixed"
       ? e.currentTarget?.getBoundingClientRect().top
@@ -45,19 +48,23 @@ export const addItemToCart = (e: any, cart: HTMLElement | null) => {
 
   setTimeout(() => {
     flyingBtn.remove();
-    storeItems(cart);
+    storeItems();
   }, speed * 1.5);
 };
 
-function storeItems(cart: HTMLElement | null) {
+function storeItems(cart: HTMLElement, qty: number | null) {
+  let currentCart = localStorage.getItem("user-cart");
+  let cartList = JSON.parse(currentCart || "[]");
+  const { userCart } = useUserCart();
+
   if (cart) {
     let itmsInCart = cart.getAttribute("data-count");
     cart.classList.add("addedCount");
-
-    if (!itmsInCart) {
-      cart.setAttribute("data-count", String(1));
-    } else {
-      cart.setAttribute("data-count", String(parseInt(itmsInCart, 10) + 1));
-    }
+    cart.setAttribute("data-count", String(userCart.length));
+    // if (!itmsInCart) {
+    //   cart.setAttribute("data-count", String(qty));
+    // } else {
+    //   cart.setAttribute("data-count", String(cartList.length));
+    // }
   }
 }
