@@ -1,5 +1,6 @@
 import React from "react";
 import CartList from "./cartList/CartList";
+import { useUserCart } from "../../../store/currentCart";
 
 type Props = {
   openCart: boolean;
@@ -7,12 +8,14 @@ type Props = {
 };
 
 const CartBtn = ({ openCart, callBack }: Props) => {
+  const { userCart } = useUserCart();
+  let totalCart = userCart.reduce((acc, item) => (acc += item.productQTY), 0);
   return (
     <>
       <button
         onClick={callBack}
         id="cartBtn"
-        className={`flex flex-col items-center nav-bar-btn p-[0.34rem] ${
+        className={`flex flex-col items-center nav-bar-btn p-[0.34rem] relative ${
           openCart ? "open" : ""
         }`}>
         <svg
@@ -26,6 +29,13 @@ const CartBtn = ({ openCart, callBack }: Props) => {
         <span className="hidden md:block text-[12px] text-[#8b96a5]">
           MyCart
         </span>
+        {totalCart !== 0 && (
+          <span
+            className="absolute top-0 right-0 text-white bg-[#3d8bfd] rounded-full w-[17px] h-[17px] flex items-center justify-center"
+            id="addBtnCart">
+            <small className="text-white text-[10px]">{totalCart}</small>
+          </span>
+        )}
       </button>
       <CartList isOpen={openCart} />
     </>

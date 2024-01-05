@@ -37,7 +37,13 @@ button[data-count]::after {
   right: -8%;
   top: -5%;
 }
-button[data-count].addedCount::after {
+/* button[data-count].addedCount::after {
+  animation-name: shakeUp;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+} */
+.addBtn {
   animation-name: shakeUp;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;

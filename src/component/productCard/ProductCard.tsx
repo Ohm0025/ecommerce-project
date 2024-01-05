@@ -16,14 +16,23 @@ const ProductCard = (props: Props) => {
   const navivate = useNavigate();
   const { addUserCart } = useUserCart();
 
-  useEffect(() => {
-    const addBtn = document.querySelectorAll("[data-addToCart]");
+  const addProductToCart = (e: any) => {
     const cartBtn = document.getElementById("cartBtn");
+    const addBtnCart = document.getElementById("addBtnCart");
+    cartBtn && addItemToCart(e, cartBtn);
+    addBtnCart?.classList.add("addBtn");
+    setTimeout(() => {
+      addBtnCart?.classList.remove("addBtn");
+    }, 750);
+  };
+  // useEffect(() => {
+  //   const addBtn = document.querySelectorAll("[data-addToCart]");
+  //   const cartBtn = document.getElementById("cartBtn");
 
-    for (let btn of addBtn) {
-      btn.addEventListener("click", (e) => addItemToCart(e, cartBtn));
-    }
-  }, []);
+  //   for (let btn of addBtn) {
+  //     btn.addEventListener("click", (e) => addItemToCart(e, cartBtn));
+  //   }
+  // }, []);
 
   return (
     <div className="w-[90%] items-center mx-auto my-2 h-[14em] min-h-[100px] grid grid-cols-3 grid-rows-1 gap-3 p-2 text-[12px] bg-white rounded shadow sm:max-w-[725px] sm:min-h-[150px] relative">
@@ -71,7 +80,8 @@ const ProductCard = (props: Props) => {
       </div>
       <div className="absolute top-3 right-3">
         <button
-          onClick={() => {
+          onClick={(e) => {
+            addProductToCart(e);
             handleOnClickCartSmall({
               productId: props.productDetail.id,
               productTitle: props.productDetail.title,

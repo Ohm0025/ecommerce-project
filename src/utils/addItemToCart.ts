@@ -48,7 +48,7 @@ export const addItemToCart = (e: any, cart: HTMLElement, qty: number = 1) => {
 
   setTimeout(() => {
     flyingBtn.remove();
-    storeItems();
+    // storeItems();
   }, speed * 1.5);
 };
 
