@@ -47,11 +47,13 @@ const ListCartCheckOut = ({ callBack }: Props) => {
         <span>Total:</span>
         <span>${taxCal(subTotalDiscount, 7)}</span>
       </div>
-      <button
-        onClick={() => callBack && callBack()}
-        className="bg-[#2eb517] text-center py-2 rounded-md text-white mt-4 block w-full">
-        Checkout
-      </button>
+      {userCart.length > 0 && (
+        <button
+          onClick={() => callBack && callBack()}
+          className="bg-[#2eb517] text-center py-2 rounded-md text-white mt-4 block w-full">
+          Checkout
+        </button>
+      )}
     </div>
   );
 };

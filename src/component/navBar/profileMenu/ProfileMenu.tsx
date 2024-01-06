@@ -22,7 +22,12 @@ const ProfileMenu = ({ isOpen }: Props) => {
         </li>
         <li
           className="text-[white] py-1 text-center cursor-pointer"
-          onClick={() => navigate("/authen")}>
+          onClick={() => {
+            if (token) {
+              localStorage.removeItem("authToken");
+            }
+            navigate("/authen");
+          }}>
           {token ? "Logout" : "Login / Register"}
         </li>
       </ul>

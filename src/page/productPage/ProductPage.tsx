@@ -11,6 +11,7 @@ import EmptyFound from "../../component/emptyFound/EmptyFound";
 import NavPage from "../../component/navPage/NavPage";
 import useProductPage from "./ProductPage.hook";
 import { useLinkRef } from "../../store/linkRef";
+import { useFilterList } from "../../store/filterList";
 
 type Props = {};
 
@@ -20,6 +21,7 @@ const ProductPage = (props: Props) => {
   const { currentCat, setCurrentCat } = useProductCategory();
   const [currentPage, setCurrentPage] = useState(1);
   const { brand } = useLinkRef();
+  const { price, rate } = useFilterList();
   return (
     <>
       {productList.loading ? (
@@ -33,6 +35,16 @@ const ProductPage = (props: Props) => {
             <div className="min-h-[100vh] mt-1 col-span-4 sm:col-span-3">
               {productList.data
                 .slice((currentPage - 1) * 10, (currentPage - 1) * 10 + 10)
+                .filter(
+                  (item) => item.price >= price[0] && item.price <= price[1]
+                )
+                .filter((item) => {
+                  if (rate !== 0) {
+                    return item.rating <= rate && item.rating >= rate - 1;
+                  } else {
+                    return item;
+                  }
+                })
                 .map((item, index) => {
                   if (currentCat.length === 0 || !currentCat) {
                     if (brand) {

@@ -1,11 +1,13 @@
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import React, { useState } from "react";
 import StarRating from "../../starRating/StarRating";
+import { useFilterList } from "../../../store/filterList";
 
 type Props = {};
 
 const RatingFilter = (props: Props) => {
   const [isCheckBox, setIsCheckBox] = useState(false);
+  const { rate, setRate } = useFilterList();
   return (
     <div className={`border-t-2 py-2 ${isCheckBox ? "h-fit" : "h-[50px]"}`}>
       <div className="flex justify-between items-center px-1 mt-1">
@@ -23,7 +25,19 @@ const RatingFilter = (props: Props) => {
             return (
               <FormControlLabel
                 key={`list-rating-${index}`}
-                control={<Checkbox />}
+                control={
+                  <Checkbox
+                    onChange={(e) => {
+                      if (rate === +e.target.value) {
+                        setRate(0);
+                      } else {
+                        setRate(+e.target.value);
+                      }
+                    }}
+                    value={item}
+                    checked={rate === item}
+                  />
+                }
                 label={<StarRating rate={item} />}></FormControlLabel>
             );
           })}
