@@ -12,6 +12,8 @@ import BackDropLoading from "./component/backDropLoading/BackDropLoading";
 import { useLoading } from "./store/loadingState";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   const { isLoading, openIsLoading, closeIsLoading } = useLoading();
@@ -43,6 +45,14 @@ function App() {
         {
           path: "checkout",
           element: <CheckOutPage />,
+        },
+        {
+          path: "orderHx",
+          element: (
+            <div className="mx-auto flex justify-center items-center min-h-[100vh]">
+              {"coming soon"}
+            </div>
+          ),
         },
         {
           path: "*",

@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import useCategory from "./Category.hook";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { productCategory } from "../../services/ProductCategory";
+import CarouzelCat from "./CarouzelCat";
+import { useLinkRef } from "../../store/linkRef";
 
 type Props = {};
 
@@ -14,11 +16,22 @@ const category: string[] = [
 
 const Category = (props: Props) => {
   const { listCat = category, listImg } = useCategory();
+  const { setCategory } = useLinkRef();
+  const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col w-full mt-[17px] bg-[white] shadow-md rounded-md overflow-hidden">
+    <div className="flex flex-col w-full mt-[17px] bg-[white] shadow-md rounded-md">
       <div className="p-1">Categorys</div>
-      <div className="flex overflow-x-auto slider">
+      <CarouzelCat
+        listCat={listCat}
+        listImg={listImg}
+        setCategoty={(item: string): void => {
+          alert("click");
+          setCategory(item);
+          navigate("/products/category/" + item);
+        }}
+      />
+      {/* <div className="flex overflow-x-auto slider">
         {listCat.map((item, index) => {
           return (
             <Link to={"/products/category/" + item} key={`cat-link-${index}`}>
@@ -38,7 +51,7 @@ const Category = (props: Props) => {
             </Link>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };

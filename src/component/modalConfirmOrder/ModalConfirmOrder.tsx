@@ -5,6 +5,7 @@ import Modal from "@mui/material/Modal";
 import { Button, DialogActions } from "@mui/material";
 import { useUserCart } from "../../store/currentCart";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const style = {
   position: "absolute" as "absolute",
@@ -24,6 +25,7 @@ type Props = {
 
 export default function ModalConfirmOrder({ isOpen, handleClose }: Props) {
   const { clearUserCart } = useUserCart();
+  const navigate = useNavigate();
   const handleCancel = () => {
     handleClose();
   };
@@ -31,6 +33,7 @@ export default function ModalConfirmOrder({ isOpen, handleClose }: Props) {
     toast.success("การสั่งซื้อสำเร็จ");
     clearUserCart();
     handleClose();
+    navigate("/orderHx");
   };
   const [isConfirm, setIsConfirm] = React.useState(false);
   return (

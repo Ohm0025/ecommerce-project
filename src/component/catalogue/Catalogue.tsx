@@ -34,7 +34,7 @@ const Catalogue = (props: Props) => {
       {productList.loading ? (
         <Spinner color="black" />
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 w-full my-[10px] px-1">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 w-full my-[10px] mt-[30px] px-1">
           <div className="col-span-full font-semibold px-2">
             Sample Products
           </div>
