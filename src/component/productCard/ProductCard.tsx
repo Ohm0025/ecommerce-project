@@ -82,16 +82,7 @@ const ProductCard = (props: Props) => {
         <button
           onClick={(e) => {
             addProductToCart(e);
-            handleOnClickCartSmall({
-              productId: props.productDetail.id,
-              productTitle: props.productDetail.title,
-              productQTY: 1,
-              productDiscount: props.productDetail.discountPercentage,
-              productPrice: props.productDetail.price,
-              productImg: props.productDetail.images[1],
-              productBrand: props.productDetail.brand,
-              productRate: props.productDetail.rating,
-            });
+
             addUserCart({
               productId: props.productDetail.id,
               productTitle: props.productDetail.title,

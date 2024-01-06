@@ -2,6 +2,7 @@ import React from "react";
 import ProductCounter from "../productCounter/ProductCounter";
 import { InputProductType } from "../../utils/clickCartSmall";
 import { discountCal } from "../../utils/priceCal";
+import { useUserCart } from "../../store/currentCart";
 
 type ListItemType = {
   title: string;
@@ -13,6 +14,7 @@ type Props = {
 };
 
 const ListCartItem = ({ item }: Props) => {
+  const { removeUserCart } = useUserCart();
   return (
     <div
       className={`grid grid-cols-1 sm:grid-cols-3 border-b-[1px] border-gray-200 py-3`}>
@@ -23,12 +25,14 @@ const ListCartItem = ({ item }: Props) => {
         <div className="flex flex-col gap-2">
           <div className="text">{item.productTitle}</div>
           <div className="text-gray-400 flex flex-col">
-            <span>brand:</span>
-            <span>rating:</span>
+            <span>brand:{item.productBrand}</span>
+            <span>rating:{item.productRate}/5</span>
           </div>
 
           <div className="absolute sm:static right-[0.2rem]">
-            <button className="text-sm text-[red] px-2 py-1 border border-gray-200 rounded-md">
+            <button
+              className="text-sm text-[red] px-2 py-1 border border-gray-200 rounded-md"
+              onClick={() => removeUserCart(item.productId)}>
               <span className="hidden sm:inline-block">Remove</span>
               <span className="inline-block sm:hidden">
                 <i className="fa-solid fa-trash"></i>

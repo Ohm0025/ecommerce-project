@@ -21,7 +21,7 @@ const CheckOutPage = (props: Props) => {
       </div>
       <div className="flex gap-5 flex-col md:flex-row ">
         {userCart.length > 0 ? (
-          <div className="flex flex-col border shadow bg-white border-gray-200 rounded-md overflow-x-hidden px-4 max-h-[400px] w-full">
+          <div className="flex flex-col border shadow bg-white border-gray-200 rounded-md overflow-x-hidden px-4 min-h-[400px] w-full">
             <div className="overflow-y-auto">
               {userCart.map((item, index) => {
                 return (
@@ -34,8 +34,8 @@ const CheckOutPage = (props: Props) => {
         ) : (
           <EmptyFound
             text={"no item in cart"}
-            setHeight="100px"
-            editClass="flex flex-col border shadow bg-white border-gray-200 rounded-md overflow-x-hidden px-4 max-h-[400px] w-full items-center justify-center"
+            setHeight="400px"
+            editClass="flex flex-col border shadow bg-white border-gray-200 rounded-md overflow-x-hidden px-4 min-h-[400px] w-full items-center justify-center"
           />
         )}
         <ListCartCheckOut callBack={callBack} />

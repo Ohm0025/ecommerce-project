@@ -12,6 +12,9 @@ const initDetail: IProductDetail = {
   image: "",
   images: [],
   stock: 0,
+  brand: "",
+  rating: 0,
+  discountPercentage: 0,
 };
 
 export const useDetailPage = () => {

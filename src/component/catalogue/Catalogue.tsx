@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { searchProduct } from "../../services/searchProduct";
 import { useProductListStore } from "../../store/productList";
 import Spinner from "../spinner/Spinner";
+import { Link } from "react-router-dom";
 
 type Props = {};
 
@@ -39,7 +40,8 @@ const Catalogue = (props: Props) => {
           </div>
           {productList.data.map((item, index) => {
             return (
-              <div
+              <Link
+                to={"/products/detail/" + item.id}
                 key={`sample-product-img-${index}`}
                 className="grid grid-rows-5 w-full max-w-[250px] gap-[1.25rem] h-[300px] bg-[white] py-4 px-2 rounded-md shadow">
                 <img
@@ -55,7 +57,7 @@ const Catalogue = (props: Props) => {
                   <span>{"$ " + item.price}</span>
                   <span className="text-gray-400 text-sm">{item.title}</span>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
@@ -65,3 +67,5 @@ const Catalogue = (props: Props) => {
 };
 
 export default Catalogue;
+
+// navivate("/products/detail/" + props.productDetail.id

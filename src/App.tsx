@@ -44,6 +44,10 @@ function App() {
           path: "checkout",
           element: <CheckOutPage />,
         },
+        {
+          path: "*",
+          element: <ProductPage />,
+        },
       ],
     },
     {
