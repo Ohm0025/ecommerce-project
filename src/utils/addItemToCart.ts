@@ -30,13 +30,15 @@ export const addItemToCart = (e: any, cart: HTMLElement, {}: number = 1) => {
   }s`;
 
   document.body.appendChild(flyingBtn);
-  console.dir(cart.offsetParent);
+
+  let offsetLeft: any = cart.offsetParent;
+
   if (cart) {
     // flyingBtn.style.top = `${cart.offsetTop + cart.offsetHeight - 16}px`;
     // flyingBtn.style.right = `${cart.offsetLeft + cart.offsetWidth - 16}px`;
     flyingBtn.style.top = `${cart.offsetTop + cart.offsetHeight - 10}px`;
     flyingBtn.style.left = `${
-      cart.offsetParent?.offsetLeft + cart.offsetWidth + cart.offsetLeft - 16
+      offsetLeft.offsetLeft + cart.offsetWidth + cart.offsetLeft - 16
     }px`;
   }
 
