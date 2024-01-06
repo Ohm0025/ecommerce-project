@@ -1,4 +1,3 @@
-import { Component } from "react";
 import Slider from "react-slick";
 import { SampleNextArrow, SamplePrevArrow } from "../carousel/CarouselNew";
 import { ArrCatImg } from "./Category.hook";
