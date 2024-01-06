@@ -1,9 +1,8 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
-const HeadBarAlter = (props: Props) => {
+const HeadBarAlter = ({}: Props) => {
   const navigate = useNavigate();
   return (
     <div className="flex items-center flex-1 order-1">

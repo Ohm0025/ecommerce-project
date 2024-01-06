@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useProductCategory } from "../../../store/categoryAll";
 import { productCategory } from "../../../services/ProductCategory";
-import { Link } from "react-router-dom";
+
 import { useLinkRef } from "../../../store/linkRef";
 
 type Props = {
   listCat?: string[];
 };
 
-const CategoryFilter = (props: Props) => {
+const CategoryFilter = ({}: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const { productCategories, setProductCategory } = useProductCategory();
   const { setCategory } = useLinkRef();

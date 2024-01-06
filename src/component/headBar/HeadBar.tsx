@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import HeadBarMain from "./HeadBarMain";
-import HeadBarAlter from "./HeadBarAlter";
+
 import HeadBarSm from "./HeadBarSm";
 
 type Props = {};
 
-const HeadBar = (props: Props) => {
+const HeadBar = ({}: Props) => {
   // const location = useLocation();
   // const [isHome, setIsHome] = useState(true);
 

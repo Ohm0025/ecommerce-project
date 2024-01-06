@@ -10,11 +10,9 @@ const useLogin = () => {
   const navigate = useNavigate();
   const {
     register,
-    watch,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const loginObj = watch("loginObj");
 
   const onSubmit = async (data: any) => {
     openIsLoading();

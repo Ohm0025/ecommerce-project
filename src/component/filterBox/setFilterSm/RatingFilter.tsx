@@ -1,11 +1,11 @@
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 import StarRating from "../../starRating/StarRating";
 import { useFilterList } from "../../../store/filterList";
 
 type Props = {};
 
-const RatingFilter = (props: Props) => {
+const RatingFilter = ({}: Props) => {
   const [isCheckBox, setIsCheckBox] = useState(false);
   const { rate, setRate } = useFilterList();
   return (

@@ -1,4 +1,3 @@
-import React from "react";
 import ProfileMenu from "../profileMenu/ProfileMenu";
 
 type Props = {

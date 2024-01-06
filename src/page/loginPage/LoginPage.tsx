@@ -1,11 +1,10 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useLogin } from "./Login.hook";
 import RegisterInputText from "../../component/registerInputText/RegisterInputText";
 
 type Props = {};
 
-const LoginPage = (props: Props) => {
+const LoginPage = ({}: Props) => {
   const { handleSubmit, onSubmit, fieldLogin, errors } = useLogin();
   return (
     <div className="w-full lg:w-1/2 py-16 px-12">

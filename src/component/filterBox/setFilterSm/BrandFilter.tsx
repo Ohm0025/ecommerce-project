@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import { useProductListStore } from "../../../store/productList";
 import { useLinkRef } from "../../../store/linkRef";
@@ -7,7 +7,7 @@ type Props = {
   listBrands: string[];
 };
 
-const BrandFilter = (props: Props) => {
+const BrandFilter = ({}: Props) => {
   const [isCheckBox, setIsCheckBox] = useState(false);
   const { productList } = useProductListStore();
   const { setBrand, brand, category } = useLinkRef();

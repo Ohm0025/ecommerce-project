@@ -1,16 +1,11 @@
 import { Box, Rating } from "@mui/material";
-import React from "react";
 
 type Props = {
   rate: number | undefined;
   full?: number | 5;
 };
 
-const StarRating = ({ rate, full = 5 }: Props) => {
-  const arr = new Array(full);
-  let size = (100 * (rate || 0)) / full + "%";
-  let fontSize = 25;
-
+const StarRating = ({ rate }: Props) => {
   return (
     <div className="flex items-end justify-between gap-2">
       <Rating

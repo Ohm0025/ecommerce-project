@@ -1,6 +1,12 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import Slider from "react-slick";
-export function SampleNextArrow(props) {
+
+type PropsArrow = {
+  className?: string;
+  style?: any;
+  onClick?: any;
+};
+export function SampleNextArrow(props: PropsArrow) {
   const { className, style, onClick } = props;
   return (
     <div
@@ -16,7 +22,7 @@ export function SampleNextArrow(props) {
   );
 }
 
-export function SamplePrevArrow(props) {
+export function SamplePrevArrow(props: PropsArrow) {
   const { className, style, onClick } = props;
   return (
     <div
@@ -32,9 +38,13 @@ export function SamplePrevArrow(props) {
   );
 }
 
-export default class SimpleSlider extends Component {
+interface SlideProps {
+  slide: string[];
+}
+
+export default class SimpleSlider extends Component<SlideProps> {
   render() {
-    const { slides } = this.props;
+    const { slide } = this.props;
 
     const settings = {
       dots: true,
@@ -46,7 +56,7 @@ export default class SimpleSlider extends Component {
       autoplaySpeed: 2000,
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
-      customPaging: (i) => (
+      customPaging: () => (
         <div
           style={{
             marginTop: "-80px",
@@ -59,11 +69,11 @@ export default class SimpleSlider extends Component {
         </div>
       ),
     };
-    console.log(slides);
+
     return (
       <div>
         <Slider {...settings}>
-          {slides.map((item, index) => {
+          {slide.map((item: string, index: number) => {
             return (
               <div className="" key={`carousel-${index}`}>
                 <img src={item} className="mx-auto" />

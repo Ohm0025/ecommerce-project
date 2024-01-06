@@ -1,13 +1,10 @@
 import { useEffect } from "react";
-import { searchProduct } from "../../services/searchProduct";
 import { useProductListStore } from "../../store/productList";
 import Spinner from "../spinner/Spinner";
 import { Link } from "react-router-dom";
 
-type Props = {};
-
-const Catalogue = (props: Props) => {
-  const { productList, fetchProductList, setFetchProductList, setProductList } =
+const Catalogue = () => {
+  const { productList, fetchProductList, setProductList } =
     useProductListStore();
 
   const callData = () => {
@@ -67,5 +64,3 @@ const Catalogue = (props: Props) => {
 };
 
 export default Catalogue;
-
-// navivate("/products/detail/" + props.productDetail.id

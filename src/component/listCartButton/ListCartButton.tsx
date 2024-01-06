@@ -1,11 +1,10 @@
-import React from "react";
 import { useUserCart } from "../../store/currentCart";
 import { useNavigate } from "react-router-dom";
 import { useLinkRef } from "../../store/linkRef";
 
 type Props = {};
 
-const ListCartButton = (props: Props) => {
+const ListCartButton = ({}: Props) => {
   const { clearUserCart } = useUserCart();
   const { category } = useLinkRef();
   const navigate = useNavigate();

@@ -1,4 +1,3 @@
-import React from "react";
 import { InputProductType } from "../../../../../utils/clickCartSmall";
 import { formatProductTitle } from "../../../../../utils/formatText";
 import { discountCal } from "../../../../../utils/priceCal";

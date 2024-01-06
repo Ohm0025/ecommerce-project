@@ -1,16 +1,14 @@
-import React from "react";
 import { useDetailPage } from "./DetailPage.hook";
 import Spinner from "../../component/spinner/Spinner";
 import StarRating from "../../component/starRating/StarRating";
-import ProductCounter from "../../component/productCounter/ProductCounter";
 import OrderButton from "../../component/orderButton/OrderButton";
 import ProductSlide from "../../component/productSlide/ProductSlide";
 import { discountCal } from "../../utils/priceCal";
 
 type Props = {};
 
-const DetailPage = (props: Props) => {
-  const { productDetail, loading, changeLoading } = useDetailPage();
+const DetailPage = ({}: Props) => {
+  const { productDetail, loading } = useDetailPage();
 
   return (
     <div>

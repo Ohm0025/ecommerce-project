@@ -1,8 +1,3 @@
-interface IRating {
-  rate: number;
-  count: number;
-}
-
 export interface IProductDetail {
   id: number | "";
   title: string;

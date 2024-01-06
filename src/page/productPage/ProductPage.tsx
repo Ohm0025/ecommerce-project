@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useProductListStore } from "../../store/productList";
-import { useParams, useSearchParams } from "react-router-dom";
+import React, { useState } from "react";
 import Spinner from "../../component/spinner/Spinner";
 import ProductCard from "../../component/productCard/ProductCard";
 import FilterBox from "../../component/filterBox/FilterBox";
@@ -8,17 +6,16 @@ import { useProductCategory } from "../../store/categoryAll";
 import { Pagination } from "@mui/material";
 import "./ProductPage.css";
 import EmptyFound from "../../component/emptyFound/EmptyFound";
-import NavPage from "../../component/navPage/NavPage";
 import useProductPage from "./ProductPage.hook";
 import { useLinkRef } from "../../store/linkRef";
 import { useFilterList } from "../../store/filterList";
 
 type Props = {};
 
-const ProductPage = (props: Props) => {
+const ProductPage = ({}: Props) => {
   const { productList } = useProductPage();
 
-  const { currentCat, setCurrentCat } = useProductCategory();
+  const { currentCat } = useProductCategory();
   const [currentPage, setCurrentPage] = useState(1);
   const { brand } = useLinkRef();
   const { price, rate } = useFilterList();
@@ -85,7 +82,7 @@ const ProductPage = (props: Props) => {
             count={Math.ceil(productList.data.length / 10)}
             className="pagination-product-page col-span-8"
             sx={{ margin: "10px auto" }}
-            onChange={(event: React.ChangeEvent<unknown>, value: number) =>
+            onChange={({}: React.ChangeEvent<unknown>, value: number) =>
               setCurrentPage(value)
             }
           />

@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from "react";
-import SearchBar from "../component/searchBar/SearchBar";
+import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../component/footer/Footer";
-import HeadBar from "../component/headBar/HeadBar";
-import NavBar from "../component/navBar/NavBar";
-import NavPage from "../component/navPage/NavPage";
 import TopBarMain from "./topBar/TopBarMain";
-import TopBarAlter from "./topBar/TopBarAlter";
 
 type Props = {};
 
-const LayoutHome = (props: Props) => {
+const LayoutHome = ({}: Props) => {
   const location = useLocation();
   const [isHome, setIsHome] = useState(true);
 

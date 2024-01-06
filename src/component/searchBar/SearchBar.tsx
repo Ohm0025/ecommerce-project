@@ -1,45 +1,14 @@
-import React, { useEffect, useState } from "react";
-import Cart from "../cart/Cart";
 import { useSearchBar } from "./SearchBar.hook";
-import { Link } from "react-router-dom";
-import UserDropDown from "../userDropdown/UserDropDown";
 import Dropdown from "react-dropdown";
 import "./SearchBar.css";
-import { Container } from "@mui/material";
 import { useLinkRef } from "../../store/linkRef";
 import { useProductCategory } from "../../store/categoryAll";
 
-type Props = {};
-
-const mockCatList = ["All category", "cat1", "cat2", "cat3"];
-
-const SearchBar = (props: Props) => {
-  const [openCart, setOpenCart] = useState(false);
-  const [openUser, setOpenUser] = useState(false);
-  const { fieldKeyword, suggestArr, listProducts, changeKeyword, keyword } =
-    useSearchBar();
-
-  const suggestBox = React.useRef<HTMLInputElement | any>(null);
-  const [openSuggest, setOpenSuggest] = useState(true);
-
-  const [catList, setCatList] = useState(mockCatList[0]);
+const SearchBar = () => {
+  const { listProducts } = useSearchBar();
 
   const { setCategory, setQuery, category, query } = useLinkRef();
   const { productCategories } = useProductCategory();
-
-  useEffect(() => {
-    const handleClickOutSideSuggestBox = (e: any) => {
-      if (suggestBox.current && !suggestBox.current.contains(e.target)) {
-        setOpenSuggest(false);
-      } else {
-        if (e.target.name === "keyword") setOpenSuggest(true);
-      }
-    };
-    document.addEventListener("click", handleClickOutSideSuggestBox);
-    return () => {
-      document.removeEventListener("click", handleClickOutSideSuggestBox);
-    };
-  }, [suggestBox]);
 
   return (
     <div className="flex h-[40px] gap-[1px] order-last sm:order-1 gap-y-1 items-center border-2 rounded-[10px] border-[#3d8bfd] bg-[#3d8bfd] w-[100%] mx-auto sm:w-[50%]">

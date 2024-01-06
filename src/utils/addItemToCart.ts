@@ -1,12 +1,8 @@
-import { useEffect, useState } from "react";
-import { InputProductType } from "./clickCartSmall";
-import { useUserCart } from "../store/currentCart";
-
 const speed = 500,
   curveDelay = 300,
   position = "fixed";
 
-export const addItemToCart = (e: any, cart: HTMLElement, qty: number = 1) => {
+export const addItemToCart = (e: any, cart: HTMLElement, {}: number = 1) => {
   let btnY =
     position === "fixed"
       ? e.currentTarget?.getBoundingClientRect().top
@@ -34,7 +30,7 @@ export const addItemToCart = (e: any, cart: HTMLElement, qty: number = 1) => {
   }s`;
 
   document.body.appendChild(flyingBtn);
-
+  console.dir(cart.offsetParent);
   if (cart) {
     // flyingBtn.style.top = `${cart.offsetTop + cart.offsetHeight - 16}px`;
     // flyingBtn.style.right = `${cart.offsetLeft + cart.offsetWidth - 16}px`;
@@ -54,19 +50,19 @@ export const addItemToCart = (e: any, cart: HTMLElement, qty: number = 1) => {
   }, speed * 1.5);
 };
 
-function storeItems(cart: HTMLElement, qty: number | null) {
-  let currentCart = localStorage.getItem("user-cart");
-  let cartList = JSON.parse(currentCart || "[]");
-  const { userCart } = useUserCart();
+// function storeItems(cart: HTMLElement, qty: number | null) {
+//   let currentCart = localStorage.getItem("user-cart");
+//   let cartList = JSON.parse(currentCart || "[]");
+//   const { userCart } = useUserCart();
 
-  if (cart) {
-    let itmsInCart = cart.getAttribute("data-count");
-    cart.classList.add("addedCount");
-    cart.setAttribute("data-count", String(userCart.length));
-    // if (!itmsInCart) {
-    //   cart.setAttribute("data-count", String(qty));
-    // } else {
-    //   cart.setAttribute("data-count", String(cartList.length));
-    // }
-  }
-}
+//   if (cart) {
+//     let itmsInCart = cart.getAttribute("data-count");
+//     cart.classList.add("addedCount");
+//     cart.setAttribute("data-count", String(userCart.length));
+//     // if (!itmsInCart) {
+//     //   cart.setAttribute("data-count", String(qty));
+//     // } else {
+//     //   cart.setAttribute("data-count", String(cartList.length));
+//     // }
+//   }
+// }

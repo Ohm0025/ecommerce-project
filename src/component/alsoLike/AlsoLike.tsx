@@ -1,7 +1,4 @@
-import React from "react";
 import SuggestItem from "./suggestItem/SuggestItem";
-
-type Props = {};
 
 const mockProductList = [
   {
@@ -22,7 +19,7 @@ const mockProductList = [
   },
 ];
 
-const AlsoLike = (props: Props) => {
+const AlsoLike = () => {
   return (
     <div className="mt-5 bg-white py-4 px-2 rounded-md overflow-hidden shadow">
       <div className="font-semibold px-3 pb-3">You also like</div>

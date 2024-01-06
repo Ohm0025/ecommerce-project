@@ -1,11 +1,9 @@
-import React from "react";
 import "./ProfileMenu.css";
 import { useNavigate } from "react-router-dom";
 
 type Props = {
   isOpen: boolean;
 };
-const listMenu = ["menu 1", "menu 2"];
 
 const ProfileMenu = ({ isOpen }: Props) => {
   const token = localStorage.getItem("authToken");

@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
 import { IProductListItem } from "../../interface/productList";
 import { formatProductTitle } from "../../utils/formatText";
 import StarRating from "../starRating/StarRating";
 import { useNavigate } from "react-router-dom";
 import { discountCal } from "../../utils/priceCal";
 import { addItemToCart } from "../../utils/addItemToCart";
-import { handleOnClickCartSmall } from "../../utils/clickCartSmall";
 import { useUserCart } from "../../store/currentCart";
 
 type Props = {

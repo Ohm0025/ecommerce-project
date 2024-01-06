@@ -1,11 +1,7 @@
-import React, { useEffect } from "react";
 import useCategory from "./Category.hook";
-import { Link, useNavigate } from "react-router-dom";
-import { productCategory } from "../../services/ProductCategory";
+import { useNavigate } from "react-router-dom";
 import CarouzelCat from "./CarouzelCat";
 import { useLinkRef } from "../../store/linkRef";
-
-type Props = {};
 
 const category: string[] = [
   "electronics",
@@ -14,7 +10,7 @@ const category: string[] = [
   "women's clothing",
 ];
 
-const Category = (props: Props) => {
+const Category = () => {
   const { listCat = category, listImg } = useCategory();
   const { setCategory } = useLinkRef();
   const navigate = useNavigate();

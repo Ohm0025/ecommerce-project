@@ -1,10 +1,8 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Component } from "react";
 import Slider from "react-slick";
-import { useLinkRef } from "../../store/linkRef";
 import { SampleNextArrow, SamplePrevArrow } from "../carousel/CarouselNew";
 
-export default class CarouzelCat extends Component {
+export default class CarouzelCat extends Component<any> {
   render() {
     const { listCat, listImg, setCategory } = this.props;
     var settings = {
@@ -48,14 +46,14 @@ export default class CarouzelCat extends Component {
     return (
       <div>
         <Slider {...settings}>
-          {listCat.map((item, index) => {
+          {listCat.map((item: any) => {
             return (
               <button
                 className="h-[170px] w-[150px] border-[0.5px] border-l-0 border-gray-200 hover:bg-[#8CB7F5] grid grid-rows-[2fr_1fr] items-center justify-center relative py-1"
                 onClick={() => setCategory(item)}>
                 <img
                   src={
-                    listImg.find((item2) => item2.productTitle === item)
+                    listImg.find((item2: any) => item2.productTitle === item)
                       ?.productImg
                   }
                   alt=""

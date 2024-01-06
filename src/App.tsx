@@ -1,7 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomePage from "./page/homePage/HomePage";
 import ProductPage from "./page/productPage/ProductPage";
-import SearchBar from "./component/searchBar/SearchBar";
 import LayoutHome from "./layout/LayoutHome";
 import DetailPage from "./page/detailPage/DetailPage";
 import LayoutAuth from "./layout/LayoutAuth";
@@ -16,7 +15,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function App() {
-  const { isLoading, openIsLoading, closeIsLoading } = useLoading();
+  const { isLoading, closeIsLoading } = useLoading();
   const router = createBrowserRouter([
     {
       path: "/",

@@ -1,10 +1,7 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { Button, DialogActions } from "@mui/material";
-import { useUserCart } from "../../store/currentCart";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 const style = {
@@ -24,7 +21,6 @@ type Props = {
 };
 
 export default function ModalLogin({ isOpen, handleClose }: Props) {
-  const { clearUserCart } = useUserCart();
   const navigate = useNavigate();
   const handleCancel = () => {
     handleClose();
@@ -33,7 +29,7 @@ export default function ModalLogin({ isOpen, handleClose }: Props) {
     handleClose();
     navigate("/authen");
   };
-  const [isConfirm, setIsConfirm] = React.useState(false);
+
   return (
     <Modal
       open={isOpen}

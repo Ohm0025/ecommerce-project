@@ -3,7 +3,7 @@ import { useProductCategory } from "../../store/categoryAll";
 import { productCategory } from "../../services/ProductCategory";
 
 const useFilterBox = () => {
-  const { productCategories, setProductCategory, setCurrentCat, currentCat } =
+  const { productCategories, setProductCategory, setCurrentCat } =
     useProductCategory();
 
   const callData = async () => {

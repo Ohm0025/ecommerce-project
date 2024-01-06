@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ListCartItem from "../../component/listCartItem/ListCartItem";
 import ListCartButton from "../../component/listCartButton/ListCartButton";
 import ListCartCheckOut from "../../component/listCartCheckOut/ListCartCheckOut";
@@ -10,7 +10,7 @@ import ModalLogin from "../../component/modalLogin/ModalLogin";
 
 type Props = {};
 
-const CheckOutPage = (props: Props) => {
+const CheckOutPage = ({}: Props) => {
   const [openModal, setOpenModal] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const callBack = () => {

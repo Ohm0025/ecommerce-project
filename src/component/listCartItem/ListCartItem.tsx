@@ -1,13 +1,7 @@
-import React from "react";
 import ProductCounter from "../productCounter/ProductCounter";
 import { InputProductType } from "../../utils/clickCartSmall";
 import { discountCal } from "../../utils/priceCal";
 import { useUserCart } from "../../store/currentCart";
-
-type ListItemType = {
-  title: string;
-  img: string;
-};
 
 type Props = {
   item: InputProductType;

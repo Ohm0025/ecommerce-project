@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import SimpleSlider from "./CarouselNew";
 
 type Props = {
@@ -6,17 +5,8 @@ type Props = {
 };
 
 const Carousel = (props: Props) => {
-  const [current, setCurrent] = useState(0);
-  const previousSlide = () => {
-    if (current === 0) setCurrent(props.slides.length - 1);
-    else setCurrent(current - 1);
-  };
-  const nextSlide = () => {
-    if (current === props.slides.length - 1) setCurrent(0);
-    else setCurrent(current + 1);
-  };
   return (
-    <SimpleSlider slides={props.slides} />
+    <SimpleSlider slide={props.slides} />
     // <div className="overflow-hidden min-h-[200px] relative shadow-md sm:max-h-[420px]">
     //   <div
     //     className={`flex transition ease-out items-center`}

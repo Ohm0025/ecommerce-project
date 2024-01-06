@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserCart } from "../../store/currentCart";
 import { useDetailPage } from "../../page/detailPage/DetailPage.hook";

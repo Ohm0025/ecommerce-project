@@ -1,15 +1,14 @@
 import { Slider } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { useFilterList } from "../../../store/filterList";
 
 type Props = {};
 
-const PriceFilter = (props: Props) => {
+const PriceFilter = ({}: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { price, setPriceMaxMin } = useFilterList();
 
-  console.log(price);
   return (
     <div className={`border-t-2 py-2 ${isOpen ? "h-fit" : "h-[50px]"}`}>
       <div className="flex justify-between items-center px-1 mt-1">
@@ -28,7 +27,7 @@ const PriceFilter = (props: Props) => {
           value={price}
           step={10}
           getAriaLabel={() => "Temperature range"}
-          onChange={(event: Event, newValue: number | number[]) => {
+          onChange={({}: Event, newValue: number | number[]) => {
             setPriceMaxMin(newValue as number[]);
           }}
           valueLabelDisplay="auto"

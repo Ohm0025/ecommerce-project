@@ -1,9 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useProductListStore } from "../../store/productList";
 import { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { searchProduct } from "../../services/searchProduct";
-import { getAllProduct } from "../../services/product";
+import { useNavigate } from "react-router-dom";
 import { useLinkRef } from "../../store/linkRef";
 import { productCategory } from "../../services/ProductCategory";
 import { useProductCategory } from "../../store/categoryAll";
@@ -12,23 +10,15 @@ import useProductPage from "../../page/productPage/ProductPage.hook";
 const useSearchBar = () => {
   const {
     register,
-    handleSubmit,
+
     setValue,
     watch,
-    formState: { errors },
+    formState: {},
   } = useForm();
-
-  const location = useLocation();
 
   const [suggestArr, setSuggestArr] = useState<Array<string>>([]);
 
-  const {
-    setFetchProductList,
-    setProductList,
-    productTotal,
-    setProductTotal,
-    fetchProductList,
-  } = useProductListStore();
+  const { productTotal, fetchProductList } = useProductListStore();
 
   const { callInitData } = useProductPage();
   const { query, category } = useLinkRef();
@@ -37,7 +27,7 @@ const useSearchBar = () => {
   const navigate = useNavigate();
   const keyword = watch("keyword");
 
-  const listProducts = (title?: string) => {
+  const listProducts = () => {
     if (query) {
       navigate("/products/search/" + query);
     } else if (category && category !== "All category") {
@@ -59,32 +49,32 @@ const useSearchBar = () => {
     }
   }, [keyword]);
 
-  const callData = async () => {
-    setFetchProductList({ data: [], loading: true, error: null });
-    const responseList = await getAllProduct();
-    if (responseList?.status === 200) {
-      const rawTotal = responseList.data.total;
-      const rawProductList = responseList.data.products;
-      if (rawProductList) {
-        setFetchProductList({
-          data: rawProductList,
-          loading: false,
-          error: null,
-        });
-      }
-      if (rawTotal) {
-        setProductTotal(rawTotal);
-      } else {
-        setProductTotal(0);
-      }
-    } else {
-      setFetchProductList({
-        data: [],
-        loading: false,
-        error: responseList.error,
-      });
-    }
-  };
+  // const callData = async () => {
+  //   setFetchProductList({ data: [], loading: true, error: null });
+  //   const responseList = await getAllProduct();
+  //   if (responseList?.status === 200) {
+  //     const rawTotal = responseList.data.total;
+  //     const rawProductList = responseList.data.products;
+  //     if (rawProductList) {
+  //       setFetchProductList({
+  //         data: rawProductList,
+  //         loading: false,
+  //         error: null,
+  //       });
+  //     }
+  //     if (rawTotal) {
+  //       setProductTotal(rawTotal);
+  //     } else {
+  //       setProductTotal(0);
+  //     }
+  //   } else {
+  //     setFetchProductList({
+  //       data: [],
+  //       loading: false,
+  //       error: responseList.error,
+  //     });
+  //   }
+  // };
 
   const callCat = async () => {
     if (productCategories.data.length === 0) {

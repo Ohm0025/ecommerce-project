@@ -1,4 +1,3 @@
-import React from "react";
 import CartList from "./cartList/CartList";
 import { useUserCart } from "../../../store/currentCart";
 

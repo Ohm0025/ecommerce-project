@@ -1,5 +1,3 @@
-import React from "react";
-
 type Props = {
   listItem: string[];
   isOpen?: boolean;
@@ -13,7 +11,7 @@ const Cart = (props: Props) => {
           ? "block translate-y-[60px]"
           : "hidden translate-y-[-100px]"
       } max-w-[400px] w-[300px]`}>
-      {props.listItem.map((item, index) => {
+      {props.listItem.map(() => {
         return (
           <div className="flex items-center justify-around bg-gray-400 py-1">
             <div className="rounded-full w-[50px] h-[50px] bg-white text-center overflow-hidden">

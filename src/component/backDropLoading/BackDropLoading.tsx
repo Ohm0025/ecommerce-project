@@ -1,12 +1,11 @@
 import { Backdrop, CircularProgress } from "@mui/material";
-import { useEffect } from "react";
 
 type Props = {
   open: boolean;
   handleClose: () => void;
 };
 
-const BackDropLoading = ({ open, handleClose }: Props) => {
+const BackDropLoading = ({ open }: Props) => {
   return (
     <Backdrop
       sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useProductListStore } from "../../store/productList";
-import { useSearchParams, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useLoading } from "../../store/loadingState";
 import {
   getAllProduct,
@@ -11,11 +11,11 @@ import { useLinkRef } from "../../store/linkRef";
 import { IProductListItem } from "../../interface/productList";
 
 const useProductPage = () => {
-  const { setProductList, setFetchProductList, productList, fetchProductList } =
+  const { setProductList, setFetchProductList, productList } =
     useProductListStore();
   const { openIsLoading, closeIsLoading } = useLoading();
   const { cat, q } = useParams();
-  const { category, query, brand } = useLinkRef();
+  const { category, query } = useLinkRef();
 
   const callInitData = async () => {
     try {

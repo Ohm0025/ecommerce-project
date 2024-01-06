@@ -1,7 +1,5 @@
-import React from "react";
 import HeadBar from "../../component/headBar/HeadBar";
 import NavBar from "../../component/navBar/NavBar";
-
 import SearchBar from "../../component/searchBar/SearchBar";
 import FilterBox from "../../component/filterBox/FilterBox";
 

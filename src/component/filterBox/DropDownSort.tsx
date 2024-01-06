@@ -1,10 +1,9 @@
-import React from "react";
 import Dropdown from "react-dropdown";
 
 type Props = {};
 const mockList = ["list1", "list2"];
 
-const DropDownSort = (props: Props) => {
+const DropDownSort = ({}: Props) => {
   return (
     <Dropdown
       options={mockList}

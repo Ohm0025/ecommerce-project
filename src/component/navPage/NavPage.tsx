@@ -1,25 +1,12 @@
-import React, { useEffect, useState } from "react";
-import {
-  useLocation,
-  useNavigate,
-  useParams,
-  useSearchParams,
-} from "react-router-dom";
-import { formatPath } from "../../utils/formatText";
-import { getPathArr } from "../../utils/getPathArr";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { useLinkRef } from "../../store/linkRef";
 import { checkNavProduct } from "../../utils/checkNavProduct";
 
 type Props = {};
 
-const NavPage = (props: Props) => {
+const NavPage = ({}: Props) => {
   const location = useLocation();
-
-  const params = useParams();
-
-  const [isHome, setIsHome] = useState(false);
-  const [arrPath, setArrPath] = useState<string[]>([]);
-
   const navigate = useNavigate();
   const { query, brand, category } = useLinkRef();
 

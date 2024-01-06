@@ -1,6 +1,4 @@
-import React from "react";
 import Carousel from "../../component/carousel/Carousel";
-import SearchBar from "../../component/searchBar/SearchBar";
 import Category from "../../component/category/Category";
 import Catalogue from "../../component/catalogue/Catalogue";
 
@@ -13,7 +11,7 @@ let sampleSlides = [
   "https://backend.tops.co.th/media/wysiwyg/10.10_Tops_online_Mega_deals-pae_Hero-en_1.jpg",
 ];
 
-const HomePage = (props: Props) => {
+const HomePage = ({}: Props) => {
   return (
     <div className="flex flex-col sm:w-[80%] sm:m-auto">
       <Carousel slides={sampleSlides} />

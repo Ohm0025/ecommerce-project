@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./NavBar.css";
-import ProfileMenu from "./profileMenu/ProfileMenu";
 import CartBtn from "./cartBtn/CartBtn";
 import ProfileBtn from "./profileBtn/ProfileBtn";
 import OrderBtn from "./orderBtn/OrderBtn";
@@ -8,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
-const NavBar = (props: Props) => {
+const NavBar = ({}: Props) => {
   const [openAuth, setOpenAuth] = useState(false);
   const [openCart, setOpenCart] = useState(false);
   const [openOrder, setOpenOrder] = useState(false);

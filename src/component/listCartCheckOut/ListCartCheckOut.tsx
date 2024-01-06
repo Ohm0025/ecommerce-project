@@ -1,4 +1,3 @@
-import React from "react";
 import { useUserCart } from "../../store/currentCart";
 import { discountCal, taxCal } from "../../utils/priceCal";
 

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useUserCart } from "../../store/currentCart";
 import { InputProductType } from "../../utils/clickCartSmall";
 
@@ -9,7 +8,7 @@ type Props = {
 };
 
 const ProductCounter = (props: Props) => {
-  const { addUserCart, userCart, raiseQty, dropQty } = useUserCart();
+  const { raiseQty, dropQty } = useUserCart();
   return (
     <div className="flex rounded-[0.3rem] overflow-hidden h-[3rem] sm:h-[2rem]">
       <button

@@ -8,7 +8,7 @@ type Props = {
   isProductPage?: boolean;
 };
 
-const FilterBox = ({ isProductPage }: Props) => {
+const FilterBox = ({}: Props) => {
   return (
     <div
       className={`col-span-8 grid grid-cols-8 gap-1 bg-white shadow sticky top-[102px] sm:static z-10 sm:bg-transparent sm:flex sm:flex-col sm:col-span-1 sm:gap-2`}>
