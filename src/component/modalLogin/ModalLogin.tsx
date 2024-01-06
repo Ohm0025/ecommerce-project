@@ -27,7 +27,7 @@ export default function ModalLogin({ isOpen, handleClose }: Props) {
   };
   const handleOk = () => {
     handleClose();
-    navigate("/authen");
+    navigate("/ecommerce-project/authen");
   };
 
   return (

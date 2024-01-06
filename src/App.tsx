@@ -18,7 +18,7 @@ function App() {
   const { isLoading, closeIsLoading } = useLoading();
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/ecommerce-project/",
       element: <LayoutHome />,
       children: [
         {
@@ -60,7 +60,7 @@ function App() {
       ],
     },
     {
-      path: "/authen",
+      path: "/ecommerce-project/authen/",
       element: <LayoutAuth />,
       children: [
         {

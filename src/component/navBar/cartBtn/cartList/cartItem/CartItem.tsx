@@ -26,7 +26,10 @@ const CartItem = ({ item }: Props) => {
         </div>
       </div>
       <div className="w-[50px] flex justify-around items-center gap-2 col-span-2">
-        <button onClick={() => navigate("/products/detail/" + item.productId)}>
+        <button
+          onClick={() =>
+            navigate("/ecommerce-project/products/detail/" + item.productId)
+          }>
           <i className="fa-solid fa-gear"></i>
         </button>
         <button onClick={() => removeUserCart(item.productId)}>

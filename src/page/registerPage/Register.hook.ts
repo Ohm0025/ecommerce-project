@@ -26,7 +26,7 @@ const useRegister = () => {
       if (res.data?.email === data.email) {
         localStorage.setItem("authToken", "isLogin");
         toast.success("register success");
-        navigate("/");
+        navigate("/ecommerce-project/");
         location.reload();
       }
       closeIsLoading();

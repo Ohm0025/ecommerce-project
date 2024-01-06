@@ -24,7 +24,7 @@ const ProfileMenu = ({ isOpen }: Props) => {
             if (token) {
               localStorage.removeItem("authToken");
             }
-            navigate("/authen");
+            navigate("/ecommerce-project/authen");
           }}>
           {token ? "Logout" : "Login / Register"}
         </li>

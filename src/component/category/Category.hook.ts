@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { productCategory } from "../../services/ProductCategory";
 
-type ArrCatImg = {
+export type ArrCatImg = {
   productTitle: string;
   productImg: string;
 };

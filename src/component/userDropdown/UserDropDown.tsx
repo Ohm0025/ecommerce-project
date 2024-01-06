@@ -14,7 +14,7 @@ const UserDropDown = (props: Props) => {
           {token ? (
             <li className="bg-gray-400 py-2">log out</li>
           ) : (
-            <Link to={"/authen"}>
+            <Link to={"/ecommerce-project/authen"}>
               <li className="bg-gray-400 py-2 hover:text-white hover:bg-gray-600">
                 log in
               </li>

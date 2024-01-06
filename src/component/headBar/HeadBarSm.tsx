@@ -16,7 +16,7 @@ const HeadBarSm = (props: Props) => {
         height: props.editHeight,
         paddingLeft: `${props.register ? "30px" : ""}`,
       }}
-      onClick={() => navigate("/")}>
+      onClick={() => navigate("/ecommerce-project")}>
       <svg
         className="cursor-pointer"
         width={props.editSize}

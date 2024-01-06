@@ -33,7 +33,7 @@ const CartList = ({ isOpen }: Props) => {
           <div className="w-full flex flex-col items-center gap-1 mt-1">
             <button
               className="w-[80%] py-2 bg-[#0d79fd] rounded-md text-white"
-              onClick={() => navigate("/checkout")}>
+              onClick={() => navigate("/ecommerce-project/checkout")}>
               check bill
             </button>
 

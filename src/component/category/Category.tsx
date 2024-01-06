@@ -21,10 +21,9 @@ const Category = () => {
       <CarouzelCat
         listCat={listCat}
         listImg={listImg}
-        setCategoty={(item: string): void => {
-          alert("click");
-          setCategory(item);
-          navigate("/products/category/" + item);
+        setCategory={(value: string) => {
+          setCategory(value);
+          navigate("/ecommerce-project/products/category/" + value);
         }}
       />
       {/* <div className="flex overflow-x-auto slider">

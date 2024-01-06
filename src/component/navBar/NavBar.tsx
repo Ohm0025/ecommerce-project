@@ -27,7 +27,7 @@ const NavBar = ({}: Props) => {
           setOpenOrder((prev) => !prev);
           setOpenAuth(false);
           setOpenCart(false);
-          navigate("/orderHx");
+          navigate("/ecommerce-project/orderHx");
         }}
         openOrder={openOrder}
       />

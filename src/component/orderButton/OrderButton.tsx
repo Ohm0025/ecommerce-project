@@ -36,7 +36,7 @@ const OrderButton = (props: Props) => {
             productBrand: productDetail.brand,
             productRate: +(productDetail.rating || 0),
           });
-          navigate("/checkout");
+          navigate("/ecommerce-project/checkout");
         }}>
         ซื้อสินค้าทันที
       </button>

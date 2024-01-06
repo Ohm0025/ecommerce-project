@@ -47,7 +47,7 @@ const RegisterConfirmBtn = () => {
       <div className="text-center mt-5 text-sm">
         I've already have account go to{" "}
         <Link
-          to="/authen"
+          to="/ecommerce-project/authen"
           className="text-[#0D6EFD] font-semibold hover:text-blue-400 hover:underline">
           Login
         </Link>

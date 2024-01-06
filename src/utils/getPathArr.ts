@@ -32,7 +32,7 @@ const getOnClick = (pathTitle: string, subpath?: string): GetOnClickType => {
   let distination = "";
   switch (pathTitle) {
     case "Home":
-      distination = "home";
+      distination = "";
       break;
     case "Cart":
       distination = "cart";
@@ -44,13 +44,13 @@ const getOnClick = (pathTitle: string, subpath?: string): GetOnClickType => {
       distination = "checkout";
       break;
     case "Cat":
-      distination = `category/${subpath}`;
+      distination = `products/category/${subpath}`;
       break;
     case "Brand":
       distination = `products/${subpath}`;
       break;
   }
-  return () => navigate(`/${distination}`);
+  return () => navigate(`/ecommerce-project/${distination}`);
 };
 
 export { getPathArr, getOnClick };

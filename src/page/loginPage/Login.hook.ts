@@ -22,7 +22,7 @@ const useLogin = () => {
       if (res.data?.token) {
         localStorage.setItem("authToken", "isLogin");
         toast.success("login success");
-        navigate("/");
+        navigate("/ecommerce-project/");
         location.reload();
       }
       closeIsLoading();

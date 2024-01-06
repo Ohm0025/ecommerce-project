@@ -26,7 +26,9 @@ const LayoutAuth = () => {
               <p className="text-white">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Perspiciatis, ad.
-                <Link to="/" className="text-blue-400 font-semibold">
+                <Link
+                  to="/ecommerce-project"
+                  className="text-blue-400 font-semibold">
                   Go to Home Page
                 </Link>
               </p>

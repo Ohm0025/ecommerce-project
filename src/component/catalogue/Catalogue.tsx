@@ -38,7 +38,7 @@ const Catalogue = () => {
           {productList.data.map((item, index) => {
             return (
               <Link
-                to={"/products/detail/" + item.id}
+                to={"products/detail/" + item.id}
                 key={`sample-product-img-${index}`}
                 className="grid grid-rows-5 w-full max-w-[250px] gap-[1.25rem] h-[300px] bg-[white] py-4 px-2 rounded-md shadow">
                 <img

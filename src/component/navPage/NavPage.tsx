@@ -26,14 +26,14 @@ const NavPage = ({}: Props) => {
               )
             );
           })} */}
-          <li className="cursor-pointer" onClick={() => navigate("/")}>
+          <li
+            className="cursor-pointer"
+            onClick={() => navigate("/ecommerce-project")}>
             home
           </li>
 
           {checkNavProduct(location.pathname) && (
-            <li
-              className="cursor-pointer"
-              onClick={() => navigate("/products")}>
+            <li className="cursor-pointer" onClick={() => navigate("products")}>
               <span className="mx-[10px]">{">"}</span>
               products
             </li>
@@ -44,7 +44,9 @@ const NavPage = ({}: Props) => {
               <span className="mx-[10px]">{">"}</span>
               <li
                 className="cursor-pointer"
-                onClick={() => navigate("/products/category/" + category)}>
+                onClick={() =>
+                  navigate("/ecommerce-project/products/category/" + category)
+                }>
                 {category}
               </li>
             </>
@@ -54,7 +56,7 @@ const NavPage = ({}: Props) => {
               <span className="mx-[10px]">{">"}</span>
               <li
                 className="cursor-pointer"
-                onClick={() => navigate("/products")}>
+                onClick={() => navigate("/ecommerce-project/products")}>
                 {brand}
               </li>
             </>
@@ -64,7 +66,9 @@ const NavPage = ({}: Props) => {
               <span className="mx-[10px]">{">"}</span>
               <li
                 className="cursor-pointer"
-                onClick={() => navigate("/products/search/" + query)}>
+                onClick={() =>
+                  navigate("/ecommerce-project/products/search/" + query)
+                }>
                 {query}
               </li>
             </>

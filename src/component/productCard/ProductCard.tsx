@@ -70,7 +70,9 @@ const ProductCard = (props: Props) => {
           <button
             className="font-semibold text-[#0D6EFD]"
             onClick={() =>
-              navivate("/products/detail/" + props.productDetail.id)
+              navivate(
+                "/ecommerce-project/products/detail/" + props.productDetail.id
+              )
             }>
             View details
           </button>

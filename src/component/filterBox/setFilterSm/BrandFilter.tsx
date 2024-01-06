@@ -12,8 +12,13 @@ const BrandFilter = ({}: Props) => {
   const { productList } = useProductListStore();
   const { setBrand, brand, category } = useLinkRef();
 
-  const listBand = productList.data.map((item) => {
-    return item.brand;
+  let listBand: string[] = [];
+  productList.data.forEach((item) => {
+    if (item.brand) {
+      if (!listBand.includes(item.brand)) {
+        listBand.push(item.brand);
+      }
+    }
   });
 
   return (

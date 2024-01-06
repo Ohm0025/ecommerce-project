@@ -29,11 +29,11 @@ const useSearchBar = () => {
 
   const listProducts = () => {
     if (query) {
-      navigate("/products/search/" + query);
+      navigate("/ecommerce-project/products/search/" + query);
     } else if (category && category !== "All category") {
-      navigate("/products/category/" + category);
+      navigate("/ecommerce-project/products/category/" + category);
     } else {
-      navigate("/products");
+      navigate("/ecommerce-project/products");
     }
     callInitData();
   };
