@@ -40,10 +40,15 @@ const NavPage = (props: Props) => {
           <li className="cursor-pointer" onClick={() => navigate("/")}>
             home
           </li>
-          <span className="mx-[10px]">{">"}</span>
-          <li className="cursor-pointer" onClick={() => navigate("/products")}>
-            products
-          </li>
+
+          {location.pathname.split("/").includes("products") && (
+            <li
+              className="cursor-pointer"
+              onClick={() => navigate("/products")}>
+              <span className="mx-[10px]">{">"}</span>
+              products
+            </li>
+          )}
 
           {category && (
             <>
