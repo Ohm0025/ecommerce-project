@@ -8,11 +8,13 @@ import {
 import { formatPath } from "../../utils/formatText";
 import { getPathArr } from "../../utils/getPathArr";
 import { useLinkRef } from "../../store/linkRef";
+import { checkNavProduct } from "../../utils/checkNavProduct";
 
 type Props = {};
 
 const NavPage = (props: Props) => {
   const location = useLocation();
+
   const params = useParams();
 
   const [isHome, setIsHome] = useState(false);
@@ -41,7 +43,7 @@ const NavPage = (props: Props) => {
             home
           </li>
 
-          {location.pathname.split("/").includes("products") && (
+          {checkNavProduct(location.pathname) && (
             <li
               className="cursor-pointer"
               onClick={() => navigate("/products")}>

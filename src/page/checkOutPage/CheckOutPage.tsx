@@ -6,12 +6,21 @@ import AlsoLike from "../../component/alsoLike/AlsoLike";
 import ModalConfirmOrder from "../../component/modalConfirmOrder/ModalConfirmOrder";
 import { useUserCart } from "../../store/currentCart";
 import EmptyFound from "../../component/emptyFound/EmptyFound";
+import ModalLogin from "../../component/modalLogin/ModalLogin";
 
 type Props = {};
 
 const CheckOutPage = (props: Props) => {
   const [openModal, setOpenModal] = useState(false);
-  const callBack = () => setOpenModal(true);
+  const [openLogin, setOpenLogin] = useState(false);
+  const callBack = () => {
+    const isToken = localStorage.getItem("authToken");
+    if (isToken) {
+      setOpenModal(true);
+    } else {
+      setOpenLogin(true);
+    }
+  };
   const { userCart } = useUserCart();
 
   return (
@@ -45,6 +54,7 @@ const CheckOutPage = (props: Props) => {
         isOpen={openModal}
         handleClose={() => setOpenModal(false)}
       />
+      <ModalLogin isOpen={openLogin} handleClose={() => setOpenLogin(false)} />
     </div>
   );
 };

@@ -25,6 +25,8 @@ export const addItemToCart = (e: any, cart: HTMLElement, qty: number = 1) => {
   flyingBtn.style.top = `${btnY}px`;
   flyingBtn.style.left = `${btnX - 25}px`;
   flyingBtn.style.opacity = "1";
+  flyingBtn.style.backgroundColor = "#3d8bfd";
+
   flyingBtn.style.transition = `all ${speed / 1000}s ease, top ${
     (speed + curveDelay) / 1000
   }s ease, left ${speed / 1000}s ease, transform ${speed / 1000}s ease ${

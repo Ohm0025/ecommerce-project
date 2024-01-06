@@ -23,17 +23,15 @@ type Props = {
   handleClose: () => void;
 };
 
-export default function ModalConfirmOrder({ isOpen, handleClose }: Props) {
+export default function ModalLogin({ isOpen, handleClose }: Props) {
   const { clearUserCart } = useUserCart();
   const navigate = useNavigate();
   const handleCancel = () => {
     handleClose();
   };
   const handleOk = () => {
-    toast.success("การสั่งซื้อสำเร็จ");
-    clearUserCart();
     handleClose();
-    // navigate("/orderHx");
+    navigate("/authen");
   };
   const [isConfirm, setIsConfirm] = React.useState(false);
   return (
@@ -44,10 +42,10 @@ export default function ModalConfirmOrder({ isOpen, handleClose }: Props) {
       aria-describedby="modal-modal-description">
       <Box sx={style}>
         <Typography id="modal-modal-title" variant="h6" component="h2">
-          Confirm order
+          Authentication Problem
         </Typography>
         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          {"ยืนยันการชำระเงินหรือไม่"}
+          {"กรุณา Login เพื่อชำระเงิน"}
         </Typography>
         <DialogActions>
           <Button autoFocus onClick={handleCancel}>

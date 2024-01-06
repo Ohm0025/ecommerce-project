@@ -5,6 +5,7 @@ import StarRating from "../../component/starRating/StarRating";
 import ProductCounter from "../../component/productCounter/ProductCounter";
 import OrderButton from "../../component/orderButton/OrderButton";
 import ProductSlide from "../../component/productSlide/ProductSlide";
+import { discountCal } from "../../utils/priceCal";
 
 type Props = {};
 
@@ -31,7 +32,18 @@ const DetailPage = (props: Props) => {
                   {productDetail.title}
                 </div>
                 <div className="py-1 sm:text-[1.5rem] sm:order-3">
-                  {"$ " + productDetail.price}
+                  <div className="flex items-center gap-2">
+                    <span className="text-[20px]">
+                      {"$ " +
+                        discountCal(
+                          +productDetail.price,
+                          productDetail.discountPercentage
+                        )}
+                    </span>
+                    <span className="line-through text-sm text-gray-400">
+                      {"$ " + productDetail.price}
+                    </span>
+                  </div>
                 </div>
                 <div className="sm:order-4">
                   <OrderButton
